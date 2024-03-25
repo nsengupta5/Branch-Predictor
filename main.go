@@ -1,26 +1,12 @@
 package main
 
-// This file contains the main function to run the cache simulator.
-// It reads in the command line arguements and initializes the cache configuration
-// and the cache simulator.
+// This file contains the main function to run the branch predictor
+// It reads in the command line arguements and initializes the branch predictor
 
 import (
 	"os"
-
-	"github.com/nsengupta5/Cache-Simulator/cache"
-	"github.com/nsengupta5/Cache-Simulator/instruction"
 )
 
 func main() {
-	// Read in the command line arguements
-	configFile := os.Args[1]
-	traceFile := os.Args[2]
-
-	// Initialize the cache configuration and the cache simulator
-	config := cache.InitializeConfig(configFile)
-	cache.InitializeCaches(&config)
-	simulator := instruction.NewCacheSimulator(&config)
-
-	// Execute the cache simulator
-	simulator.Execute(traceFile)
+	traceFile := os.Args[1]
 }
