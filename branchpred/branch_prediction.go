@@ -12,10 +12,12 @@ type BranchPredictor struct {
 	Algorithm Algorithm
 }
 
-func NewBranchPredictor(algorithm string) *BranchPredictor {
+func NewBranchPredictor(algorithm string, tableSize uint64) *BranchPredictor {
 	switch algorithm {
 	case "always-taken":
 		return &BranchPredictor{Algorithm: NewAlwaysTaken()}
+	case "two-bit":
+		return &BranchPredictor{Algorithm: NewTwoBit(tableSize)}
 	default:
 		return nil
 	}

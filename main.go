@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 
 	"github.com/nsengupta5/Branch-Predictor/branchpred"
 	"github.com/nsengupta5/Branch-Predictor/instruction"
@@ -15,12 +16,37 @@ func main() {
 	traceFile := os.Args[1]
 	algorithm := os.Args[2]
 
-	simulator := branchpred.NewBranchPredictor(algorithm)
 	instructions, err := instruction.ReadTraceFile(traceFile)
 	if err != nil {
 		panic(err)
 	}
 
+	var tableSize uint64 = getTableSize(algorithm)
+
+	simulator := branchpred.NewBranchPredictor(algorithm, tableSize)
+
 	result := simulator.Predict(instructions)
 	fmt.Printf("Accuracy: %.2f%%\n", result)
+}
+
+func getTableSize(algorithm string) uint64 {
+	if algorithm != "two-bit" {
+		return 0
+	}
+
+	var tableSize uint64
+	if len(os.Args) < 4 {
+		panic("Please provide table size for two-bit predictor")
+	}
+	tableSize, err := strconv.ParseUint(os.Args[3], 10, 64)
+	if err != nil {
+		panic(err)
+	}
+
+	switch tableSize {
+	case 512, 1024, 2048, 4096:
+	default:
+		panic("Invalid table size. Please provide a valid table size")
+	}
+	return tableSize
 }
