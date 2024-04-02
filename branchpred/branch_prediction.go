@@ -5,24 +5,26 @@ import (
 )
 
 type Algorithm interface {
-	Predict(il []instruction.Instruction) float64
+	Predict(il []instruction.Instruction) Prediction
 }
 
 type BranchPredictor struct {
 	Algorithm Algorithm
 }
 
-func NewBranchPredictor(algorithm string, tableSize uint64) *BranchPredictor {
+func NewBranchPredictor(algorithm string, tableSize uint64, historyLength uint32) *BranchPredictor {
 	switch algorithm {
 	case "always-taken":
 		return &BranchPredictor{Algorithm: NewAlwaysTaken()}
 	case "two-bit":
 		return &BranchPredictor{Algorithm: NewTwoBit(tableSize)}
+	case "gshare":
+		return &BranchPredictor{Algorithm: NewGshare(historyLength, tableSize)}
 	default:
 		return nil
 	}
 }
 
-func (bp *BranchPredictor) Predict(instructions []instruction.Instruction) float64 {
+func (bp *BranchPredictor) Predict(instructions []instruction.Instruction) Prediction {
 	return bp.Algorithm.Predict(instructions)
 }

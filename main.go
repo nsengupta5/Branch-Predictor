@@ -9,6 +9,11 @@ import (
 	"github.com/nsengupta5/Branch-Predictor/instruction"
 )
 
+const (
+	defaultHistoryLength = 8
+	defaultTableSize     = 256
+)
+
 // This file contains the main function to run the branch predictor
 // It reads in the command line arguements and initializes the branch predictor
 
@@ -23,15 +28,15 @@ func main() {
 
 	var tableSize uint64 = getTableSize(algorithm)
 
-	simulator := branchpred.NewBranchPredictor(algorithm, tableSize)
+	simulator := branchpred.NewBranchPredictor(algorithm, tableSize, defaultHistoryLength)
 
 	result := simulator.Predict(instructions)
-	fmt.Printf("Accuracy: %.2f%%\n", result)
+	fmt.Println(result)
 }
 
 func getTableSize(algorithm string) uint64 {
 	if algorithm != "two-bit" {
-		return 0
+		return 256
 	}
 
 	var tableSize uint64

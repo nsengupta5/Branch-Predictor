@@ -1,40 +1,44 @@
 package branchpred
 
 import (
+	"math"
+	"strconv"
+
 	"github.com/nsengupta5/Branch-Predictor/instruction"
 )
 
-type State uint8
-
-const (
-	StronglyNotTaken State = iota // 00
-	WeaklyNotTaken                // 01
-	WeaklyTaken                   // 10
-	StronglyTaken                 // 11
-)
-
 type TwoBit struct {
-	predictionTable map[string]State
+	predictionTable map[uint64]State
 	twoBitTableSize uint64
-	keys            []string
+	keys            []uint64
+	indexBitCount   uint64
 }
 
 func NewTwoBit(tableSize uint64) *TwoBit {
+	indexBitCount := uint64(math.Log2(float64(tableSize)))
+
 	return &TwoBit{
-		predictionTable: make(map[string]State, tableSize),
+		predictionTable: make(map[uint64]State, tableSize),
 		twoBitTableSize: tableSize,
-		keys:            make([]string, 0, tableSize),
+		keys:            make([]uint64, 0, tableSize),
+		indexBitCount:   indexBitCount,
 	}
 }
 
-func (tb *TwoBit) Predict(instructions []instruction.Instruction) float64 {
+func (tb *TwoBit) Predict(instructions []instruction.Instruction) Prediction {
 	totalBranches := 0
 	mispredictions := 0
+
+	mask := uint64((1 << tb.indexBitCount) - 1)
 
 	for _, instruction := range instructions {
 		if instruction.Conditional {
 			totalBranches++
-			pcAddress := instruction.PCAddress
+			pcAddress, err := strconv.ParseUint(instruction.PCAddress, 16, 64)
+			if err != nil {
+				panic(err)
+			}
+			pcAddress = pcAddress & mask
 			taken := instruction.Taken
 
 			if _, ok := tb.predictionTable[pcAddress]; !ok {
@@ -55,6 +59,7 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) float64 {
 			case WeaklyNotTaken:
 				if taken {
 					mispredictions++
+
 					tb.predictionTable[pcAddress] = StronglyTaken
 				} else {
 					tb.predictionTable[pcAddress] = StronglyNotTaken
@@ -79,5 +84,5 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) float64 {
 		Count:          totalBranches,
 	}
 
-	return prediction.Accuracy()
+	return prediction
 }
