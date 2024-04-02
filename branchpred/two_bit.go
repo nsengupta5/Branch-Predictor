@@ -42,11 +42,6 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) Prediction {
 			taken := instruction.Taken
 
 			if _, ok := tb.predictionTable[pcAddress]; !ok {
-				if uint64(len(tb.predictionTable)) == tb.twoBitTableSize {
-					key := tb.keys[0]
-					delete(tb.predictionTable, key)
-					tb.keys = tb.keys[1:]
-				}
 				tb.predictionTable[pcAddress] = StronglyNotTaken
 			}
 
@@ -59,7 +54,6 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) Prediction {
 			case WeaklyNotTaken:
 				if taken {
 					mispredictions++
-
 					tb.predictionTable[pcAddress] = StronglyTaken
 				} else {
 					tb.predictionTable[pcAddress] = StronglyNotTaken
@@ -68,7 +62,8 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) Prediction {
 				if taken {
 					tb.predictionTable[pcAddress] = StronglyTaken
 				} else {
-					tb.predictionTable[pcAddress] = WeaklyNotTaken
+					mispredictions++
+					tb.predictionTable[pcAddress] = StronglyNotTaken
 				}
 			case StronglyTaken:
 				if !taken {
