@@ -9,22 +9,26 @@ import (
 )
 
 type Gshare struct {
-	name                  string
+	config                *utils.GShareConfig
 	metadata              *utils.MetaData
 	globalHistoryRegister uint64
 	patternHistoryTable   map[uint64]utils.State
 	historyLength         uint64
+	initialState          utils.State
 }
 
-func NewGshare(metadata *utils.MetaData, tableSize uint64) *Gshare {
+func NewGshare(config *utils.GShareConfig, metadata *utils.MetaData) *Gshare {
+	tableSize := config.TableSize
 	historyLength := uint64(math.Log2(float64(tableSize)))
+	initialState := utils.StateMap[config.InitialState]
 
 	return &Gshare{
-		name:                  "gshare",
+		config:                config,
 		globalHistoryRegister: 0,
 		patternHistoryTable:   make(map[uint64]utils.State, tableSize),
 		historyLength:         historyLength,
 		metadata:              metadata,
+		initialState:          initialState,
 	}
 }
 
@@ -50,7 +54,7 @@ func (gs *Gshare) Predict(instructions []instruction.Instruction) utils.Predicti
 
 			index := gs.getIndex(pcAddress)
 			if _, ok := gs.patternHistoryTable[index]; !ok {
-				gs.patternHistoryTable[index] = utils.StronglyNotTaken
+				gs.patternHistoryTable[index] = gs.initialState
 			}
 
 			switch gs.patternHistoryTable[index] {
@@ -109,7 +113,7 @@ func (gs *Gshare) updateGlobalHistoryRegister(taken bool) {
 }
 
 func (gs *Gshare) GetName() string {
-	return gs.name
+	return gs.config.Name
 }
 
 func (gs *Gshare) UpdateMetaData(instruction instruction.Instruction, isMispredicted bool) {

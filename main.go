@@ -1,55 +1,107 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
-	"strconv"
 
 	"github.com/nsengupta5/Branch-Predictor/branchpred"
 	"github.com/nsengupta5/Branch-Predictor/instruction"
+	"github.com/nsengupta5/Branch-Predictor/utils"
 )
 
-// This file contains the main function to run the branch predictor
-// It reads in the command line arguements and initializes the branch predictor
+type BPConfig struct {
+	Algorithm string          `json:"algorithm"`
+	MaxLines  int             `json:"max_lines"`
+	Config    json.RawMessage `json:"config"`
+}
 
 func main() {
 	traceFile := os.Args[1]
-	algorithm := os.Args[2]
+	configFile := os.Args[2]
 
-	instructions, err := instruction.ReadTraceFile(traceFile)
+	var bpConfig BPConfig = getBPConfig(configFile)
+
+	instructions, err := instruction.ReadTraceFile(traceFile, bpConfig.MaxLines)
 	if err != nil {
 		panic(err)
 	}
 
-	var tableSize uint64 = getTableSize(algorithm)
-
-	simulator := branchpred.NewBranchPredictor(algorithm, tableSize)
+	var config utils.Config = getAlgoConfig(&bpConfig)
+	simulator := branchpred.NewBranchPredictor(config)
 
 	result := simulator.Predict(instructions)
-	fmt.Println(result)
+	printResults(&bpConfig, result)
 	simulator.ExportMetaData()
 }
 
-func getTableSize(algorithm string) uint64 {
-	switch algorithm {
-	case "two-bit", "gshare":
-		var tableSize uint64
-		if len(os.Args) < 4 {
-			errMsg := fmt.Sprintf("Please provide table size for %s predictor", algorithm)
-			panic(errMsg)
-		}
-		tableSize, err := strconv.ParseUint(os.Args[3], 10, 64)
+func getAlgoConfig(bpConfig *BPConfig) utils.Config {
+	switch bpConfig.Algorithm {
+	case "always-taken":
+		var config utils.AlwaysTakenConfig
+		err := json.Unmarshal(bpConfig.Config, &config)
 		if err != nil {
 			panic(err)
 		}
-
-		switch tableSize {
-		case 512, 1024, 2048, 4096:
-		default:
-			panic("Invalid table size. Please provide a valid table size")
+		return config
+	case "two-bit":
+		var config utils.TwoBitConfig
+		err := json.Unmarshal(bpConfig.Config, &config)
+		if err != nil {
+			panic(err)
 		}
-		return tableSize
+		return config
+	case "gshare":
+		var config utils.GShareConfig
+		err := json.Unmarshal(bpConfig.Config, &config)
+		if err != nil {
+			panic(err)
+		}
+		return config
 	default:
-		return 0
+		panic("Invalid algorithm")
 	}
+}
+
+func getBPConfig(configFile string) BPConfig {
+	file, err := os.ReadFile(configFile)
+	if err != nil {
+		panic(err)
+	}
+
+	var bpConfig BPConfig
+	err = json.Unmarshal(file, &bpConfig)
+	if err != nil {
+		panic(err)
+	}
+
+	return bpConfig
+}
+
+func printResults(bpConfig *BPConfig, result utils.Prediction) {
+	fullResult := result.GeneratePredictionFull()
+	output := make(map[string]interface{})
+	output["config"] = bpConfig
+	output["result"] = fullResult
+
+	jsonOutput, err := json.Marshal(output)
+	if err != nil {
+		panic(err)
+	}
+
+	outputFile := fmt.Sprintf("outputs/results/%s.json", bpConfig.Algorithm)
+
+	file, err := os.OpenFile(outputFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+
+	_, err = file.Write(jsonOutput)
+
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("Results written to %s\n", outputFile)
 }

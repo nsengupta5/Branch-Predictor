@@ -9,20 +9,27 @@ import (
 )
 
 type TwoBit struct {
-	name            string
+	config          *utils.TwoBitConfig
 	metadata        *utils.MetaData
-	predictionTable map[uint64]utils.State
 	indexBitCount   uint64
+	predictionTable map[uint64]utils.State
+	initialState    utils.State
 }
 
-func NewTwoBit(metadata *utils.MetaData, tableSize uint64) *TwoBit {
+func NewTwoBit(config *utils.TwoBitConfig, metadata *utils.MetaData) *TwoBit {
+	tableSize := config.TableSize
 	indexBitCount := uint64(math.Log2(float64(tableSize)))
+	initialState, ok := utils.StateMap[config.InitialState]
+	if !ok {
+		panic("Invalid initial state")
+	}
 
 	return &TwoBit{
-		name:            "two-bit",
-		predictionTable: make(map[uint64]utils.State, tableSize),
-		indexBitCount:   indexBitCount,
+		config:          config,
 		metadata:        metadata,
+		indexBitCount:   indexBitCount,
+		predictionTable: make(map[uint64]utils.State, tableSize),
+		initialState:    initialState,
 	}
 }
 
@@ -35,16 +42,16 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Predicti
 	for _, instruction := range instructions {
 		if instruction.Conditional {
 			totalBranches++
-			pcAddress, err := strconv.ParseUint(instruction.PCAddress, 16, 64)
+			pcAddressInt, err := strconv.ParseUint(instruction.PCAddress, 16, 64)
 			if err != nil {
 				panic(err)
 			}
-			pcAddress = pcAddress & mask
+			pcAddress := pcAddressInt & mask
 			taken := instruction.Taken
 			isMispredicted := false
 
 			if _, ok := tb.predictionTable[pcAddress]; !ok {
-				tb.predictionTable[pcAddress] = utils.StronglyNotTaken
+				tb.predictionTable[pcAddress] = tb.initialState
 			}
 
 			switch tb.predictionTable[pcAddress] {
@@ -77,6 +84,7 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Predicti
 					isMispredicted = true
 				}
 			}
+
 			tb.UpdateMetaData(instruction, isMispredicted)
 		}
 	}
@@ -90,7 +98,7 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Predicti
 }
 
 func (tb *TwoBit) GetName() string {
-	return tb.name
+	return tb.config.Name
 }
 
 func (tb *TwoBit) UpdateMetaData(instruction instruction.Instruction, isMispredicted bool) {

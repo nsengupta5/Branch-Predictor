@@ -9,6 +9,8 @@ import (
 	"github.com/nsengupta5/Branch-Predictor/utils"
 )
 
+type Config interface{}
+
 type Algorithm interface {
 	Predict(il []instruction.Instruction) utils.Prediction
 	GetName() string
@@ -20,16 +22,25 @@ type BranchPredictor struct {
 	Metadata  *utils.MetaData
 }
 
-func NewBranchPredictor(algorithm string, tableSize uint64) *BranchPredictor {
-	metaData := utils.NewMetaData(tableSize)
+func NewBranchPredictor(config Config) *BranchPredictor {
+	switch cfg := config.(type) {
+	case utils.AlwaysTakenConfig:
+		metadata := utils.NewMetaData(0)
+		algo := NewAlwaysTaken(&cfg, metadata)
+		return &BranchPredictor{Algorithm: algo, Metadata: metadata}
 
-	switch algorithm {
-	case "always-taken":
-		return &BranchPredictor{Algorithm: NewAlwaysTaken(metaData), Metadata: metaData}
-	case "two-bit":
-		return &BranchPredictor{Algorithm: NewTwoBit(metaData, tableSize), Metadata: metaData}
-	case "gshare":
-		return &BranchPredictor{Algorithm: NewGshare(metaData, tableSize), Metadata: metaData}
+	case utils.TwoBitConfig:
+		var tableSize uint64 = cfg.TableSize
+		metadata := utils.NewMetaData(tableSize)
+		algo := NewTwoBit(&cfg, metadata)
+		return &BranchPredictor{Algorithm: algo, Metadata: metadata}
+
+	case utils.GShareConfig:
+		var tableSize uint64 = cfg.TableSize
+		metadata := utils.NewMetaData(tableSize)
+		algo := NewGshare(&cfg, metadata)
+		return &BranchPredictor{Algorithm: algo, Metadata: metadata}
+
 	default:
 		return nil
 	}
@@ -45,7 +56,7 @@ func (bp *BranchPredictor) ExportMetaData() utils.MetaData {
 		panic(err)
 	}
 
-	var filepath string = fmt.Sprintf("metadata/%s.json", bp.Algorithm.GetName())
+	var filepath string = fmt.Sprintf("outputs/metadata/%s.json", bp.Algorithm.GetName())
 	err = os.WriteFile(filepath, metaData, 0644)
 	if err != nil {
 		panic(err)

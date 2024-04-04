@@ -6,13 +6,13 @@ import (
 )
 
 type AlwaysTaken struct {
-	name     string
+	config   *utils.AlwaysTakenConfig
 	metadata *utils.MetaData
 }
 
-func NewAlwaysTaken(metadata *utils.MetaData) *AlwaysTaken {
+func NewAlwaysTaken(config *utils.AlwaysTakenConfig, metadata *utils.MetaData) *AlwaysTaken {
 	return &AlwaysTaken{
-		name:     "always-taken",
+		config:   config,
 		metadata: metadata,
 	}
 }
@@ -44,7 +44,7 @@ func (at *AlwaysTaken) Predict(instructions []instruction.Instruction) utils.Pre
 }
 
 func (at *AlwaysTaken) GetName() string {
-	return at.name
+	return at.config.Name
 }
 
 func (at *AlwaysTaken) UpdateMetaData(instruction instruction.Instruction, isMispredicted bool) {

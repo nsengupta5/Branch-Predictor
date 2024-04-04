@@ -1,0 +1,9 @@
+{
+    "algorithm": "gshare",
+    "max_lines:": 100,
+    "config": {
+        "name": "gshare",
+        "table_size": 512,
+        "initial_state": "StronglyNotTaken"
+    }
+}

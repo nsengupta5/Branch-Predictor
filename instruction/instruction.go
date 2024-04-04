@@ -16,9 +16,8 @@ type Instruction struct {
 	Taken         bool
 }
 
-func ReadTraceFile(traceFile string) ([]Instruction, error) {
+func ReadTraceFile(traceFile string, maxLines int) ([]Instruction, error) {
 	file, err := os.Open(traceFile)
-
 	if err != nil {
 		return nil, err
 	}
@@ -26,7 +25,15 @@ func ReadTraceFile(traceFile string) ([]Instruction, error) {
 
 	var instructions []Instruction
 	scanner := bufio.NewScanner(file)
+	lineCount := 0
+
 	for scanner.Scan() {
+		lineCount++
+
+		if maxLines >= 0 && lineCount > int(maxLines) {
+			break
+		}
+
 		line := scanner.Text()
 		fields := strings.Fields(line)
 

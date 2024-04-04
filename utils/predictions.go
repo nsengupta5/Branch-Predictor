@@ -7,6 +7,14 @@ type Prediction struct {
 	Count          int
 }
 
+type PredictionFull struct {
+	Mispredictions    int    `json:"mispredictions"`
+	Count             int    `json:"count"`
+	Correct           int    `json:"correct"`
+	Accuracy          string `json:"accuracy"`
+	MispredictionRate string `json:"misprediction_rate"`
+}
+
 func (p Prediction) Accuracy() float64 {
 	return p.PredictionRate() * 100
 }
@@ -23,10 +31,12 @@ func (p Prediction) PredictionRate() float64 {
 	return float64(p.Correct()) / float64(p.Count)
 }
 
-func (p Prediction) String() string {
-	return fmt.Sprintf("Total Branches: %d\n", p.Count) +
-		fmt.Sprintf("Correct: %d\n", p.Correct()) +
-		fmt.Sprintf("Mispredictions: %d\n", p.Mispredictions) +
-		fmt.Sprintf("Accuracy: %.2f%%\n", p.Accuracy()) +
-		fmt.Sprintf("Misprediction Rate: %.2f%%\n", p.MispredictionRate())
+func (p Prediction) GeneratePredictionFull() PredictionFull {
+	return PredictionFull{
+		Mispredictions:    p.Mispredictions,
+		Count:             p.Count,
+		Correct:           p.Correct(),
+		Accuracy:          fmt.Sprintf("%.2f%%", p.Accuracy()),
+		MispredictionRate: fmt.Sprintf("%.2f%%", p.MispredictionRate()),
+	}
 }

@@ -1,0 +1,9 @@
+{
+    "algorithm": "two-bit",
+    "max_lines": -1,
+    "config": {
+        "name": "two-bit",
+        "table_size": 512,
+        "initial_state": "StronglyNotTaken"
+    }
+}

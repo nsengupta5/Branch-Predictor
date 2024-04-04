@@ -335,6 +335,5 @@ TSWLatexianTemp*
 
 # End of https://www.toptal.com/developers/gitignore/api/tex
 
-reference/
-metadata/
+outputs/metadata/
 test_traces/
