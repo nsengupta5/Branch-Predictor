@@ -5,10 +5,14 @@ import (
 	"github.com/nsengupta5/Branch-Predictor/utils"
 )
 
-type AlwaysTaken struct{}
+type AlwaysTaken struct {
+	name string
+}
 
 func NewAlwaysTaken() *AlwaysTaken {
-	return &AlwaysTaken{}
+	return &AlwaysTaken{
+		name: "always-taken",
+	}
 }
 
 func (at *AlwaysTaken) Predict(instructions []instruction.Instruction) utils.Prediction {
@@ -30,4 +34,8 @@ func (at *AlwaysTaken) Predict(instructions []instruction.Instruction) utils.Pre
 	}
 
 	return prediction
+}
+
+func (at *AlwaysTaken) GetName() string {
+	return at.name
 }

@@ -27,6 +27,7 @@ func main() {
 
 	result := simulator.Predict(instructions)
 	fmt.Println(result)
+	simulator.ExportMetaData()
 }
 
 func getTableSize(algorithm string) uint64 {

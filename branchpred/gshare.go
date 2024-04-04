@@ -9,6 +9,7 @@ import (
 )
 
 type Gshare struct {
+	name                  string
 	globalHistoryRegister uint64
 	patternHistoryTable   map[uint64]utils.State
 	historyLength         uint64
@@ -18,6 +19,7 @@ func NewGshare(tableSize uint64) *Gshare {
 	historyLength := uint64(math.Log2(float64(tableSize)))
 
 	return &Gshare{
+		name:                  "gshare",
 		globalHistoryRegister: 0,
 		patternHistoryTable:   make(map[uint64]utils.State, tableSize),
 		historyLength:         historyLength,
@@ -96,4 +98,8 @@ func (gs *Gshare) updateGlobalHistoryRegister(taken bool) {
 		gs.globalHistoryRegister |= 1
 	}
 	gs.globalHistoryRegister &= (1 << gs.historyLength) - 1
+}
+
+func (gs *Gshare) GetName() string {
+	return gs.name
 }

@@ -9,6 +9,7 @@ import (
 )
 
 type TwoBit struct {
+	name            string
 	predictionTable map[uint64]utils.State
 	indexBitCount   uint64
 }
@@ -17,6 +18,7 @@ func NewTwoBit(tableSize uint64) *TwoBit {
 	indexBitCount := uint64(math.Log2(float64(tableSize)))
 
 	return &TwoBit{
+		name:            "two-bit",
 		predictionTable: make(map[uint64]utils.State, tableSize),
 		indexBitCount:   indexBitCount,
 	}
@@ -77,4 +79,8 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Predicti
 	}
 
 	return prediction
+}
+
+func (tb *TwoBit) GetName() string {
+	return tb.name
 }
