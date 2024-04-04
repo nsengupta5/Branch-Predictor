@@ -1,4 +1,4 @@
-package branchpred
+package utils
 
 import "fmt"
 

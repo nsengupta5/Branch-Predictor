@@ -1,4 +1,4 @@
-package branchpred
+package utils
 
 type State uint8
 

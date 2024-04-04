@@ -2,10 +2,11 @@ package branchpred
 
 import (
 	"github.com/nsengupta5/Branch-Predictor/instruction"
+	"github.com/nsengupta5/Branch-Predictor/utils"
 )
 
 type Algorithm interface {
-	Predict(il []instruction.Instruction) Prediction
+	Predict(il []instruction.Instruction) utils.Prediction
 }
 
 type BranchPredictor struct {
@@ -25,6 +26,6 @@ func NewBranchPredictor(algorithm string, tableSize uint64) *BranchPredictor {
 	}
 }
 
-func (bp *BranchPredictor) Predict(instructions []instruction.Instruction) Prediction {
+func (bp *BranchPredictor) Predict(instructions []instruction.Instruction) utils.Prediction {
 	return bp.Algorithm.Predict(instructions)
 }

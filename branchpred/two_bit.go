@@ -5,11 +5,11 @@ import (
 	"strconv"
 
 	"github.com/nsengupta5/Branch-Predictor/instruction"
+	"github.com/nsengupta5/Branch-Predictor/utils"
 )
 
 type TwoBit struct {
-	predictionTable map[uint64]State
-	keys            []uint64
+	predictionTable map[uint64]utils.State
 	indexBitCount   uint64
 }
 
@@ -17,13 +17,12 @@ func NewTwoBit(tableSize uint64) *TwoBit {
 	indexBitCount := uint64(math.Log2(float64(tableSize)))
 
 	return &TwoBit{
-		predictionTable: make(map[uint64]State, tableSize),
-		keys:            make([]uint64, 0, tableSize),
+		predictionTable: make(map[uint64]utils.State, tableSize),
 		indexBitCount:   indexBitCount,
 	}
 }
 
-func (tb *TwoBit) Predict(instructions []instruction.Instruction) Prediction {
+func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Prediction {
 	totalBranches := 0
 	mispredictions := 0
 
@@ -40,39 +39,39 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) Prediction {
 			taken := instruction.Taken
 
 			if _, ok := tb.predictionTable[pcAddress]; !ok {
-				tb.predictionTable[pcAddress] = StronglyNotTaken
+				tb.predictionTable[pcAddress] = utils.StronglyNotTaken
 			}
 
 			switch tb.predictionTable[pcAddress] {
-			case StronglyNotTaken:
+			case utils.StronglyNotTaken:
 				if taken {
 					mispredictions++
-					tb.predictionTable[pcAddress] = WeaklyNotTaken
+					tb.predictionTable[pcAddress] = utils.WeaklyNotTaken
 				}
-			case WeaklyNotTaken:
+			case utils.WeaklyNotTaken:
 				if taken {
 					mispredictions++
-					tb.predictionTable[pcAddress] = StronglyTaken
+					tb.predictionTable[pcAddress] = utils.StronglyTaken
 				} else {
-					tb.predictionTable[pcAddress] = StronglyNotTaken
+					tb.predictionTable[pcAddress] = utils.StronglyNotTaken
 				}
-			case WeaklyTaken:
+			case utils.WeaklyTaken:
 				if taken {
-					tb.predictionTable[pcAddress] = StronglyTaken
+					tb.predictionTable[pcAddress] = utils.StronglyTaken
 				} else {
 					mispredictions++
-					tb.predictionTable[pcAddress] = StronglyNotTaken
+					tb.predictionTable[pcAddress] = utils.StronglyNotTaken
 				}
-			case StronglyTaken:
+			case utils.StronglyTaken:
 				if !taken {
 					mispredictions++
-					tb.predictionTable[pcAddress] = WeaklyTaken
+					tb.predictionTable[pcAddress] = utils.WeaklyTaken
 				}
 			}
 		}
 	}
 
-	prediction := Prediction{
+	prediction := utils.Prediction{
 		Mispredictions: mispredictions,
 		Count:          totalBranches,
 	}

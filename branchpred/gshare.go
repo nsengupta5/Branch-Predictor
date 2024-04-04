@@ -5,11 +5,12 @@ import (
 	"strconv"
 
 	"github.com/nsengupta5/Branch-Predictor/instruction"
+	"github.com/nsengupta5/Branch-Predictor/utils"
 )
 
 type Gshare struct {
 	globalHistoryRegister uint64
-	patternHistoryTable   map[uint64]State
+	patternHistoryTable   map[uint64]utils.State
 	historyLength         uint64
 }
 
@@ -18,12 +19,12 @@ func NewGshare(tableSize uint64) *Gshare {
 
 	return &Gshare{
 		globalHistoryRegister: 0,
-		patternHistoryTable:   make(map[uint64]State, tableSize),
+		patternHistoryTable:   make(map[uint64]utils.State, tableSize),
 		historyLength:         historyLength,
 	}
 }
 
-func (gs *Gshare) Predict(instructions []instruction.Instruction) Prediction {
+func (gs *Gshare) Predict(instructions []instruction.Instruction) utils.Prediction {
 	totalBranches := 0
 	mispredictions := 0
 
@@ -44,39 +45,39 @@ func (gs *Gshare) Predict(instructions []instruction.Instruction) Prediction {
 
 			index := gs.getIndex(pcAddress)
 			if _, ok := gs.patternHistoryTable[index]; !ok {
-				gs.patternHistoryTable[index] = StronglyNotTaken
+				gs.patternHistoryTable[index] = utils.StronglyNotTaken
 			}
 
 			switch gs.patternHistoryTable[index] {
-			case StronglyNotTaken:
+			case utils.StronglyNotTaken:
 				if taken {
 					mispredictions++
-					gs.patternHistoryTable[index] = WeaklyNotTaken
+					gs.patternHistoryTable[index] = utils.WeaklyNotTaken
 				}
-			case WeaklyNotTaken:
+			case utils.WeaklyNotTaken:
 				if taken {
 					mispredictions++
-					gs.patternHistoryTable[index] = WeaklyTaken
+					gs.patternHistoryTable[index] = utils.WeaklyTaken
 				} else {
-					gs.patternHistoryTable[index] = StronglyNotTaken
+					gs.patternHistoryTable[index] = utils.StronglyNotTaken
 				}
-			case WeaklyTaken:
+			case utils.WeaklyTaken:
 				if !taken {
 					mispredictions++
-					gs.patternHistoryTable[index] = WeaklyNotTaken
+					gs.patternHistoryTable[index] = utils.WeaklyNotTaken
 				} else {
-					gs.patternHistoryTable[index] = StronglyTaken
+					gs.patternHistoryTable[index] = utils.StronglyTaken
 				}
-			case StronglyTaken:
+			case utils.StronglyTaken:
 				if !taken {
 					mispredictions++
-					gs.patternHistoryTable[index] = WeaklyTaken
+					gs.patternHistoryTable[index] = utils.WeaklyTaken
 				}
 			}
 		}
 	}
 
-	prediction := Prediction{
+	prediction := utils.Prediction{
 		Mispredictions: mispredictions,
 		Count:          totalBranches,
 	}
