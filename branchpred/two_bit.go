@@ -10,17 +10,19 @@ import (
 
 type TwoBit struct {
 	name            string
+	metadata        *utils.MetaData
 	predictionTable map[uint64]utils.State
 	indexBitCount   uint64
 }
 
-func NewTwoBit(tableSize uint64) *TwoBit {
+func NewTwoBit(metadata *utils.MetaData, tableSize uint64) *TwoBit {
 	indexBitCount := uint64(math.Log2(float64(tableSize)))
 
 	return &TwoBit{
 		name:            "two-bit",
 		predictionTable: make(map[uint64]utils.State, tableSize),
 		indexBitCount:   indexBitCount,
+		metadata:        metadata,
 	}
 }
 
@@ -39,6 +41,7 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Predicti
 			}
 			pcAddress = pcAddress & mask
 			taken := instruction.Taken
+			isMispredicted := false
 
 			if _, ok := tb.predictionTable[pcAddress]; !ok {
 				tb.predictionTable[pcAddress] = utils.StronglyNotTaken
@@ -49,11 +52,13 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Predicti
 				if taken {
 					mispredictions++
 					tb.predictionTable[pcAddress] = utils.WeaklyNotTaken
+					isMispredicted = true
 				}
 			case utils.WeaklyNotTaken:
 				if taken {
 					mispredictions++
 					tb.predictionTable[pcAddress] = utils.StronglyTaken
+					isMispredicted = true
 				} else {
 					tb.predictionTable[pcAddress] = utils.StronglyNotTaken
 				}
@@ -63,13 +68,16 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Predicti
 				} else {
 					mispredictions++
 					tb.predictionTable[pcAddress] = utils.StronglyNotTaken
+					isMispredicted = true
 				}
 			case utils.StronglyTaken:
 				if !taken {
 					mispredictions++
 					tb.predictionTable[pcAddress] = utils.WeaklyTaken
+					isMispredicted = true
 				}
 			}
+			tb.UpdateMetaData(instruction, isMispredicted)
 		}
 	}
 
@@ -83,4 +91,13 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Predicti
 
 func (tb *TwoBit) GetName() string {
 	return tb.name
+}
+
+func (tb *TwoBit) UpdateMetaData(instruction instruction.Instruction, isMispredicted bool) {
+	if tb.metadata.Exists(instruction.PCAddress) {
+		tb.metadata.Update(instruction, isMispredicted)
+	} else {
+		tb.metadata.AddBranch(instruction.PCAddress)
+		tb.metadata.Update(instruction, isMispredicted)
+	}
 }

@@ -6,12 +6,14 @@ import (
 )
 
 type AlwaysTaken struct {
-	name string
+	name     string
+	metadata *utils.MetaData
 }
 
-func NewAlwaysTaken() *AlwaysTaken {
+func NewAlwaysTaken(metadata *utils.MetaData) *AlwaysTaken {
 	return &AlwaysTaken{
-		name: "always-taken",
+		name:     "always-taken",
+		metadata: metadata,
 	}
 }
 
@@ -22,9 +24,14 @@ func (at *AlwaysTaken) Predict(instructions []instruction.Instruction) utils.Pre
 	for _, instruction := range instructions {
 		if instruction.Conditional {
 			totalBranches++
+			isMispredicted := false
+
 			if !instruction.Taken {
 				mispredictions++
+				isMispredicted = true
 			}
+
+			at.metadata.Update(instruction, isMispredicted)
 		}
 	}
 
@@ -38,4 +45,13 @@ func (at *AlwaysTaken) Predict(instructions []instruction.Instruction) utils.Pre
 
 func (at *AlwaysTaken) GetName() string {
 	return at.name
+}
+
+func (at *AlwaysTaken) UpdateMetaData(instruction instruction.Instruction, isMispredicted bool) {
+	if at.metadata.Exists(instruction.PCAddress) {
+		at.metadata.Update(instruction, isMispredicted)
+	} else {
+		at.metadata.AddBranch(instruction.PCAddress)
+		at.metadata.Update(instruction, isMispredicted)
+	}
 }

@@ -12,21 +12,24 @@ import (
 type Algorithm interface {
 	Predict(il []instruction.Instruction) utils.Prediction
 	GetName() string
+	UpdateMetaData(instruction instruction.Instruction, isMispredicted bool)
 }
 
 type BranchPredictor struct {
 	Algorithm Algorithm
-	Metadata  utils.MetaData
+	Metadata  *utils.MetaData
 }
 
 func NewBranchPredictor(algorithm string, tableSize uint64) *BranchPredictor {
+	metaData := utils.NewMetaData(tableSize)
+
 	switch algorithm {
 	case "always-taken":
-		return &BranchPredictor{Algorithm: NewAlwaysTaken()}
+		return &BranchPredictor{Algorithm: NewAlwaysTaken(metaData), Metadata: metaData}
 	case "two-bit":
-		return &BranchPredictor{Algorithm: NewTwoBit(tableSize)}
+		return &BranchPredictor{Algorithm: NewTwoBit(metaData, tableSize), Metadata: metaData}
 	case "gshare":
-		return &BranchPredictor{Algorithm: NewGshare(tableSize)}
+		return &BranchPredictor{Algorithm: NewGshare(metaData, tableSize), Metadata: metaData}
 	default:
 		return nil
 	}
@@ -48,6 +51,6 @@ func (bp *BranchPredictor) ExportMetaData() utils.MetaData {
 		panic(err)
 	}
 
-	fmt.Println("Metadata exported to ", filepath)
-	return bp.Metadata
+	fmt.Println("Metadata exported to", filepath)
+	return *bp.Metadata
 }
