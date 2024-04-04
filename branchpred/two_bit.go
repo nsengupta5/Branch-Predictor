@@ -9,7 +9,6 @@ import (
 
 type TwoBit struct {
 	predictionTable map[uint64]State
-	twoBitTableSize uint64
 	keys            []uint64
 	indexBitCount   uint64
 }
@@ -19,7 +18,6 @@ func NewTwoBit(tableSize uint64) *TwoBit {
 
 	return &TwoBit{
 		predictionTable: make(map[uint64]State, tableSize),
-		twoBitTableSize: tableSize,
 		keys:            make([]uint64, 0, tableSize),
 		indexBitCount:   indexBitCount,
 	}

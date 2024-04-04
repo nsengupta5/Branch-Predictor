@@ -12,14 +12,14 @@ type BranchPredictor struct {
 	Algorithm Algorithm
 }
 
-func NewBranchPredictor(algorithm string, tableSize uint64, historyLength uint32) *BranchPredictor {
+func NewBranchPredictor(algorithm string, tableSize uint64) *BranchPredictor {
 	switch algorithm {
 	case "always-taken":
 		return &BranchPredictor{Algorithm: NewAlwaysTaken()}
 	case "two-bit":
 		return &BranchPredictor{Algorithm: NewTwoBit(tableSize)}
 	case "gshare":
-		return &BranchPredictor{Algorithm: NewGshare(historyLength, tableSize)}
+		return &BranchPredictor{Algorithm: NewGshare(tableSize)}
 	default:
 		return nil
 	}
