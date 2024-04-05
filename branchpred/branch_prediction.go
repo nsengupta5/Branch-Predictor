@@ -5,19 +5,20 @@ import (
 	"github.com/nsengupta5/Branch-Predictor/utils"
 )
 
-type Config interface{}
-
+// Algorithm is an interface that defines the methods that a branch predictor algorithm should implement
 type Algorithm interface {
 	Predict(il []instruction.Instruction) utils.Prediction
 	UpdateMetaData(instruction instruction.Instruction, isMispredicted bool)
 }
 
+// BranchPredictor is a struct that contains the branch prediction algorithm and its metadata
 type BranchPredictor struct {
 	Algorithm Algorithm
 	Metadata  *utils.MetaData
 }
 
-func NewBranchPredictor(config Config) *BranchPredictor {
+// NewBranchPredictor creates a new instance of the BranchPredictor struct
+func NewBranchPredictor(config utils.Config) *BranchPredictor {
 	switch cfg := config.(type) {
 	case utils.AlwaysTakenConfig:
 		metadata := utils.NewMetaData(0)
@@ -41,6 +42,7 @@ func NewBranchPredictor(config Config) *BranchPredictor {
 	}
 }
 
+// Predict predicts the outcome of the predictions made using the algorithm
 func (bp *BranchPredictor) Predict(instructions []instruction.Instruction) utils.Prediction {
 	return bp.Algorithm.Predict(instructions)
 }

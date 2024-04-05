@@ -1,5 +1,9 @@
 package instruction
 
+// This file contains the Instruction struct and functions to read a trace file.
+// The main purpose of the file is to read from a trace file and obtain a scice
+// of instructions that can be used to predict branches.
+
 import (
 	"bufio"
 	"os"
@@ -7,6 +11,7 @@ import (
 	"strings"
 )
 
+// Instruction represents a single instruction in a trace file
 type Instruction struct {
 	PCAddress     string
 	TargetAddress string
@@ -16,6 +21,9 @@ type Instruction struct {
 	Taken         bool
 }
 
+// ReadTraceFile reads a trace file and returns a slice of instructions
+// It takes in an maxLines argument to limit the number of lines read
+// from the file. If maxLines is negative, all lines are read.
 func ReadTraceFile(traceFile string, maxLines int) ([]Instruction, error) {
 	file, err := os.Open(traceFile)
 	if err != nil {
@@ -30,6 +38,7 @@ func ReadTraceFile(traceFile string, maxLines int) ([]Instruction, error) {
 	for scanner.Scan() {
 		lineCount++
 
+		// If maxLines is set and we've read the max number of lines, break
 		if maxLines >= 0 && lineCount > int(maxLines) {
 			break
 		}
