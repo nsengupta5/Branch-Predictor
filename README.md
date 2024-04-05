@@ -30,7 +30,7 @@ To run using the executable:
 ```
 To compile and run:
 ```bash
-go run main.go /cs/studres/CS4202/Coursework/P1-CacheSim/trace-files/<trace-file>
+go run main.go /cs/studres/CS4202/Coursework/P2-BranchPredictor/trace-files/<trace-file> configs/<config-file>
 ```
 To build the executable:
 ```bash
@@ -118,4 +118,3 @@ An example configuration file for the `gshare` algorithm is as follows:
 ### Profiled
 
 TODO
-
