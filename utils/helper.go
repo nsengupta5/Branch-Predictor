@@ -7,12 +7,14 @@ import (
 	"strings"
 )
 
+// BPConfig represents the configuration of the branch predictor
 type BPConfig struct {
 	Algorithm string          `json:"algorithm"`
 	MaxLines  int             `json:"max_lines"`
 	Configs   json.RawMessage `json:"configs"`
 }
 
+// GetAlgoConfig returns the configuration for the specified algorithm
 func GetAlgoConfig(bpConfig *BPConfig) []Config {
 	switch bpConfig.Algorithm {
 	case "always-taken":
@@ -56,6 +58,7 @@ func GetAlgoConfig(bpConfig *BPConfig) []Config {
 	}
 }
 
+// GetBPConfig reads the branch predictor configuration from the specified file
 func GetBPConfig(configFile string) BPConfig {
 	file, err := os.ReadFile(configFile)
 	if err != nil {
@@ -71,7 +74,9 @@ func GetBPConfig(configFile string) BPConfig {
 	return bpConfig
 }
 
+// ExportResults exports the results of the branch predictor simulation to a JSON file
 func ExportResults(results []map[string]interface{}, bpConfig *BPConfig, traceFile string) {
+
 	// Split the trace file name to get the trace file name without the extension
 	traceFile = strings.Split(traceFile, "/")[1]
 	traceFile = strings.Split(traceFile, ".")[0]
