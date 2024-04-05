@@ -9,11 +9,9 @@ type MetaData struct {
 }
 
 type BranchInfo struct {
-	TakenRecord         []bool   `json:"taken_record"`
-	ConditionalRecord   []bool   `json:"conditional_record"`
-	BranchKindRecord    []string `json:"branch_kind_record"`
-	DirectRecord        []bool   `json:"direct_record"`
-	MispredictionRecord []bool   `json:"misprediction_record"`
+	TakenRecord         []bool `json:"taken_record"`
+	DirectRecord        []bool `json:"direct_record"`
+	MispredictionRecord []bool `json:"misprediction_record"`
 }
 
 func NewMetaData(tableSize uint64) *MetaData {
@@ -25,8 +23,6 @@ func NewMetaData(tableSize uint64) *MetaData {
 func (md *MetaData) AddBranch(branchAddress string) {
 	md.BranchAddress[branchAddress] = BranchInfo{
 		TakenRecord:         make([]bool, 0),
-		ConditionalRecord:   make([]bool, 0),
-		BranchKindRecord:    make([]string, 0),
 		DirectRecord:        make([]bool, 0),
 		MispredictionRecord: make([]bool, 0),
 	}
@@ -40,8 +36,6 @@ func (md *MetaData) Update(is instruction.Instruction, misprediction bool) {
 
 	}
 	branchInfo.TakenRecord = append(branchInfo.TakenRecord, is.Taken)
-	branchInfo.ConditionalRecord = append(branchInfo.ConditionalRecord, is.Conditional)
-	branchInfo.BranchKindRecord = append(branchInfo.BranchKindRecord, string(is.BranchKind))
 	branchInfo.DirectRecord = append(branchInfo.DirectRecord, is.Direct)
 	branchInfo.MispredictionRecord = append(branchInfo.MispredictionRecord, misprediction)
 

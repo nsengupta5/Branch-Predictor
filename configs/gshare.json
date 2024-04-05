@@ -1,9 +1,70 @@
 {
     "algorithm": "gshare",
-    "max_lines:": 100,
-    "config": {
-        "name": "gshare",
-        "table_size": 512,
-        "initial_state": "StronglyNotTaken"
-    }
+    "max_lines": -1,
+    "configs": [
+        {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken"
+        },
+        {
+            "table_size": 512,
+            "initial_state": "WeaklyNotTaken"
+        },
+        {
+            "table_size": 512,
+            "initial_state": "WeaklyTaken"
+        },
+        {
+            "table_size": 512,
+            "initial_state": "StronglyTaken"
+        },
+        {
+            "table_size": 1024,
+            "initial_state": "StronglyNotTaken"
+        },
+        {
+            "table_size": 1024,
+            "initial_state": "WeaklyNotTaken"
+        },
+        {
+            "table_size": 1024,
+            "initial_state": "WeaklyTaken"
+        },
+        {
+            "table_size": 1024,
+            "initial_state": "StronglyTaken"
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "StronglyNotTaken"
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "WeaklyNotTaken"
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "WeaklyTaken"
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "StronglyTaken"
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "StronglyNotTaken"
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "WeaklyNotTaken"
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "WeaklyTaken"
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "StronglyTaken"
+        }
+    ]
 }

@@ -43,10 +43,6 @@ func (at *AlwaysTaken) Predict(instructions []instruction.Instruction) utils.Pre
 	return prediction
 }
 
-func (at *AlwaysTaken) GetName() string {
-	return at.config.Name
-}
-
 func (at *AlwaysTaken) UpdateMetaData(instruction instruction.Instruction, isMispredicted bool) {
 	if at.metadata.Exists(instruction.PCAddress) {
 		at.metadata.Update(instruction, isMispredicted)

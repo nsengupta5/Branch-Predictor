@@ -1,9 +1,70 @@
 {
     "algorithm": "two-bit",
     "max_lines": -1,
-    "config": {
-        "name": "two-bit",
-        "table_size": 512,
-        "initial_state": "StronglyNotTaken"
-    }
+    "configs": [
+        {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken"
+        },
+        {
+            "table_size": 512,
+            "initial_state": "WeaklyNotTaken"
+        },
+        {
+            "table_size": 512,
+            "initial_state": "WeaklyTaken"
+        },
+        {
+            "table_size": 512,
+            "initial_state": "StronglyTaken"
+        },
+        {
+            "table_size": 1024,
+            "initial_state": "StronglyNotTaken"
+        },
+        {
+            "table_size": 1024,
+            "initial_state": "WeaklyNotTaken"
+        },
+        {
+            "table_size": 1024,
+            "initial_state": "WeaklyTaken"
+        },
+        {
+            "table_size": 1024,
+            "initial_state": "StronglyTaken"
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "StronglyNotTaken"
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "WeaklyNotTaken"
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "WeaklyTaken"
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "StronglyTaken"
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "StronglyNotTaken"
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "WeaklyNotTaken"
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "WeaklyTaken"
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "StronglyTaken"
+        }
+    ]
 }

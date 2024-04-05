@@ -97,10 +97,6 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Predicti
 	return prediction
 }
 
-func (tb *TwoBit) GetName() string {
-	return tb.config.Name
-}
-
 func (tb *TwoBit) UpdateMetaData(instruction instruction.Instruction, isMispredicted bool) {
 	if tb.metadata.Exists(instruction.PCAddress) {
 		tb.metadata.Update(instruction, isMispredicted)

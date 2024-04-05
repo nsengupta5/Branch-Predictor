@@ -1,10 +1,6 @@
 package branchpred
 
 import (
-	"encoding/json"
-	"fmt"
-	"os"
-
 	"github.com/nsengupta5/Branch-Predictor/instruction"
 	"github.com/nsengupta5/Branch-Predictor/utils"
 )
@@ -13,7 +9,6 @@ type Config interface{}
 
 type Algorithm interface {
 	Predict(il []instruction.Instruction) utils.Prediction
-	GetName() string
 	UpdateMetaData(instruction instruction.Instruction, isMispredicted bool)
 }
 
@@ -48,20 +43,4 @@ func NewBranchPredictor(config Config) *BranchPredictor {
 
 func (bp *BranchPredictor) Predict(instructions []instruction.Instruction) utils.Prediction {
 	return bp.Algorithm.Predict(instructions)
-}
-
-func (bp *BranchPredictor) ExportMetaData() utils.MetaData {
-	metaData, err := json.Marshal(bp.Metadata)
-	if err != nil {
-		panic(err)
-	}
-
-	var filepath string = fmt.Sprintf("outputs/metadata/%s.json", bp.Algorithm.GetName())
-	err = os.WriteFile(filepath, metaData, 0644)
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println("Metadata exported to", filepath)
-	return *bp.Metadata
 }

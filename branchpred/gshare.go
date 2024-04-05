@@ -112,10 +112,6 @@ func (gs *Gshare) updateGlobalHistoryRegister(taken bool) {
 	gs.globalHistoryRegister &= (1 << gs.historyLength) - 1
 }
 
-func (gs *Gshare) GetName() string {
-	return gs.config.Name
-}
-
 func (gs *Gshare) UpdateMetaData(instruction instruction.Instruction, isMispredicted bool) {
 	if gs.metadata.Exists(instruction.PCAddress) {
 		gs.metadata.Update(instruction, isMispredicted)

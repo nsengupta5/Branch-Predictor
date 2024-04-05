@@ -1,7 +1,7 @@
 {
     "algorithm": "always-taken",
-    "max_lines": 1000,
-    "config": {
-        "name": "always-taken"
-    }
+    "max_lines": -1,
+    "configs": [{
+
+    }]
 }

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/nsengupta5/Branch-Predictor/branchpred"
 	"github.com/nsengupta5/Branch-Predictor/instruction"
@@ -13,7 +14,7 @@ import (
 type BPConfig struct {
 	Algorithm string          `json:"algorithm"`
 	MaxLines  int             `json:"max_lines"`
-	Config    json.RawMessage `json:"config"`
+	Configs   json.RawMessage `json:"configs"`
 }
 
 func main() {
@@ -27,37 +28,59 @@ func main() {
 		panic(err)
 	}
 
-	var config utils.Config = getAlgoConfig(&bpConfig)
-	simulator := branchpred.NewBranchPredictor(config)
+	var results []map[string]interface{}
+	var configs []utils.Config = getAlgoConfig(&bpConfig)
+	for _, config := range configs {
+		simulator := branchpred.NewBranchPredictor(config)
+		result := simulator.Predict(instructions)
+		output := make(map[string]interface{})
 
-	result := simulator.Predict(instructions)
-	printResults(&bpConfig, result)
-	simulator.ExportMetaData()
+		fullResult := result.GeneratePredictionFull()
+		output["config"] = config
+		output["result"] = fullResult
+		results = append(results, output)
+	}
+	exportResults(results, &bpConfig, traceFile)
 }
 
-func getAlgoConfig(bpConfig *BPConfig) utils.Config {
+func getAlgoConfig(bpConfig *BPConfig) []utils.Config {
 	switch bpConfig.Algorithm {
 	case "always-taken":
-		var config utils.AlwaysTakenConfig
-		err := json.Unmarshal(bpConfig.Config, &config)
+		var atConfigs []utils.AlwaysTakenConfig
+		err := json.Unmarshal(bpConfig.Configs, &atConfigs)
 		if err != nil {
 			panic(err)
 		}
-		return config
+
+		var configs []utils.Config
+		for _, config := range atConfigs {
+			configs = append(configs, config)
+		}
+		return configs
 	case "two-bit":
-		var config utils.TwoBitConfig
-		err := json.Unmarshal(bpConfig.Config, &config)
+		var tbConfigs []utils.TwoBitConfig
+		err := json.Unmarshal(bpConfig.Configs, &tbConfigs)
 		if err != nil {
 			panic(err)
 		}
-		return config
+
+		var configs []utils.Config
+		for _, config := range tbConfigs {
+			configs = append(configs, config)
+		}
+		return configs
 	case "gshare":
-		var config utils.GShareConfig
-		err := json.Unmarshal(bpConfig.Config, &config)
+		var gsConfigs []utils.GShareConfig
+		err := json.Unmarshal(bpConfig.Configs, &gsConfigs)
 		if err != nil {
 			panic(err)
 		}
-		return config
+
+		var configs []utils.Config
+		for _, config := range gsConfigs {
+			configs = append(configs, config)
+		}
+		return configs
 	default:
 		panic("Invalid algorithm")
 	}
@@ -78,27 +101,27 @@ func getBPConfig(configFile string) BPConfig {
 	return bpConfig
 }
 
-func printResults(bpConfig *BPConfig, result utils.Prediction) {
-	fullResult := result.GeneratePredictionFull()
-	output := make(map[string]interface{})
-	output["config"] = bpConfig
-	output["result"] = fullResult
+func exportResults(results []map[string]interface{}, bpConfig *BPConfig, traceFile string) {
+	// Split the trace file name to get the trace file name without the extension
+	traceFile = strings.Split(traceFile, "/")[1]
+	traceFile = strings.Split(traceFile, ".")[0]
 
-	jsonOutput, err := json.Marshal(output)
+	outputs := map[string]interface{}{
+		"run": map[string]interface{}{
+			"algorithm":  bpConfig.Algorithm,
+			"max_lines":  bpConfig.MaxLines,
+			"trace_file": traceFile,
+		},
+		"stats": results,
+	}
+
+	jsonOutput, err := json.MarshalIndent(outputs, "", "  ")
 	if err != nil {
 		panic(err)
 	}
 
-	outputFile := fmt.Sprintf("outputs/results/%s.json", bpConfig.Algorithm)
-
-	file, err := os.OpenFile(outputFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	if err != nil {
-		panic(err)
-	}
-	defer file.Close()
-
-	_, err = file.Write(jsonOutput)
-
+	outputFile := fmt.Sprintf("outputs/results/%s/%s.json", bpConfig.Algorithm, traceFile)
+	err = os.WriteFile(outputFile, jsonOutput, 0644)
 	if err != nil {
 		panic(err)
 	}
