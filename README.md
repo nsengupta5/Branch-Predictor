@@ -47,7 +47,9 @@ Then navigate to `http://localhost:6060/pkg/github.com/nsengupta5/Branch-Predict
 
 ## Creating a Config File
 
-The config file for each algorithm is a JSON file that contains the following fields:
+The config file for each algorithm is a JSON file detailing the configuration settings for the algorithm. The `configs` directory contains sample configuration files for each algorithm. These examples can be modified to test different configurations of the algorithms.
+
+The config file has the following fields:
 - `algorithm`: The name of the algorithm to use. This can be one of `always-taken`, `two-bit`, `gshare`, or `profiled`.
 - `max_lines`: The maximum number of lines to read from the trace file. Providing a value of -1 will read all lines from the trace file.
 - `configs`: A list of configuration objects for the algorithm. Each configuration object represents a particular configuration settings for the various fields of the algorithm. The branch predictor simulator will run a simulation of the algorithm for each configuration oject specified. The fields in each configuration object depend on the algorithm. These fields are described in the following section.
@@ -117,4 +119,3 @@ An example configuration file for the `gshare` algorithm is as follows:
 
 TODO
 
-The `configs` directory contains example configuration files for each algorithm. These examples can be modified to test different configurations of the algorithms.
