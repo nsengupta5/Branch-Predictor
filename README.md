@@ -49,14 +49,72 @@ Then navigate to `http://localhost:6060/pkg/github.com/nsengupta5/Branch-Predict
 
 The config file for each algorithm is a JSON file that contains the following fields:
 - `algorithm`: The name of the algorithm to use. This can be one of `always-taken`, `two-bit`, `gshare`, or `profiled`.
-- `max_lines`: The maximum number of lines to read from the trace file.
-- `configs`: A list of configuration objects for the algorithm. Each configuration object represents a particular configuration settings for the various fields of the algorithm. The branch predictor simulator will run a simulation of the algorithm for each configuration oject specified. The fields in each configuration object depend on the algorithm. These fields are as follows:
-    - `always-taken`: No additional fields are required.
-    - `two-bit`:
-        - `table_size`: The size of the two-bit predictor table.
-        - `initial_state`: The initial state of the two-bit predictor table
-    - `gshare`:
-        - `table_size`: The size of the gshare predictor table.
-        - `history_length`: The length of the history register.
+- `max_lines`: The maximum number of lines to read from the trace file. Providing a value of -1 will read all lines from the trace file.
+- `configs`: A list of configuration objects for the algorithm. Each configuration object represents a particular configuration settings for the various fields of the algorithm. The branch predictor simulator will run a simulation of the algorithm for each configuration oject specified. The fields in each configuration object depend on the algorithm. These fields are described in the following section.
+
+### Always Taken
+
+The `always-taken` algorithm does not require any configuration settings. 
+
+An example configuration file for the `always-taken` algorithm is as follows:
+```json
+{
+    "algorithm": "always-taken",
+    "max_lines": 1000,
+    "configs": []
+}
+```
+
+### Two-Bit
+
+The `two-bit` algorithm requires the following configuration settings:
+- `table_size`: The size of the branch prediction table. This can be one of 512, 1024, 2048, or 4096.
+- `initial_state`: The initial state of the branch prediction table. This can be one of `StronglyTaken`, `WeaklyTaken`, `WeaklyNotTaken`, or `StronglyNotTaken`.
+
+An example configuration file for the `two-bit` algorithm is as follows:
+```json
+{
+    "algorithm": "two-bit",
+    "max_lines": -1,
+    "configs": [
+        {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken"
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "WeaklyNotTaken"
+        }
+    ]
+}
+```
+
+### Gshare
+
+The `gshare` algorithm requires the following configuration settings:
+- `table_size`: The size of the branch prediction table. This can be one of 512, 1024, 2048, or 4096. This will also be the size of the global history register.
+- `initial_state`: The initial state of the branch prediction table. This can be one of `StronglyTaken`, `WeaklyTaken`, `WeaklyNotTaken`, or `StronglyNotTaken`.
+
+An example configuration file for the `gshare` algorithm is as follows:
+```json
+{
+    "algorithm": "gshare",
+    "max_lines": 1000,
+    "configs": [
+        {
+            "table_size": 1024,
+            "initial_state": "StronglyTaken"
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "WeaklyTaken"
+        }
+    ]
+}
+```
+
+### Profiled
+
+TODO
 
 The `configs` directory contains example configuration files for each algorithm. These examples can be modified to test different configurations of the algorithms.
