@@ -1,0 +1,19 @@
+{
+  "run": {
+    "algorithm": "always-taken",
+    "max_lines": -1,
+    "trace_file": "leela"
+  },
+  "stats": [
+    {
+      "config": {},
+      "result": {
+        "mispredictions": 5410180,
+        "count": 8918021,
+        "correct": 3507841,
+        "accuracy": "39.33%",
+        "misprediction_rate": "60.67%"
+      }
+    }
+  ]
+}
