@@ -1,6 +1,6 @@
 {
   "algorithm": "always-taken",
-  "trace_file": "leela",
+  "trace_file": "cactusbssn",
   "runs": [
     {
       "max_lines": 1000,
@@ -23,11 +23,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 5250,
-            "count": 8344,
-            "correct": 3094,
-            "accuracy": "37.08%",
-            "misprediction_rate": "62.92%"
+            "mispredictions": 5192,
+            "count": 8317,
+            "correct": 3125,
+            "accuracy": "37.57%",
+            "misprediction_rate": "62.43%"
           }
         }
       ]
@@ -38,11 +38,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 47985,
-            "count": 87155,
-            "correct": 39170,
-            "accuracy": "44.94%",
-            "misprediction_rate": "55.06%"
+            "mispredictions": 48111,
+            "count": 87110,
+            "correct": 38999,
+            "accuracy": "44.77%",
+            "misprediction_rate": "55.23%"
           }
         }
       ]
@@ -53,11 +53,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 353741,
-            "count": 668024,
-            "correct": 314283,
-            "accuracy": "47.05%",
-            "misprediction_rate": "52.95%"
+            "mispredictions": 443923,
+            "count": 778469,
+            "correct": 334546,
+            "accuracy": "42.97%",
+            "misprediction_rate": "57.03%"
           }
         }
       ]
@@ -68,11 +68,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 5410180,
-            "count": 8918021,
-            "correct": 3507841,
-            "accuracy": "39.33%",
-            "misprediction_rate": "60.67%"
+            "mispredictions": 7034655,
+            "count": 10545704,
+            "correct": 3511049,
+            "accuracy": "33.29%",
+            "misprediction_rate": "66.71%"
           }
         }
       ]

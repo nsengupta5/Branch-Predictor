@@ -1,6 +1,6 @@
 {
   "algorithm": "always-taken",
-  "trace_file": "leela",
+  "trace_file": "exchange2",
   "runs": [
     {
       "max_lines": 1000,
@@ -23,11 +23,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 5250,
-            "count": 8344,
-            "correct": 3094,
-            "accuracy": "37.08%",
-            "misprediction_rate": "62.92%"
+            "mispredictions": 5314,
+            "count": 8431,
+            "correct": 3117,
+            "accuracy": "36.97%",
+            "misprediction_rate": "63.03%"
           }
         }
       ]
@@ -38,11 +38,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 47985,
-            "count": 87155,
-            "correct": 39170,
-            "accuracy": "44.94%",
-            "misprediction_rate": "55.06%"
+            "mispredictions": 53519,
+            "count": 80885,
+            "correct": 27366,
+            "accuracy": "33.83%",
+            "misprediction_rate": "66.17%"
           }
         }
       ]
@@ -53,11 +53,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 353741,
-            "count": 668024,
-            "correct": 314283,
-            "accuracy": "47.05%",
-            "misprediction_rate": "52.95%"
+            "mispredictions": 379525,
+            "count": 851302,
+            "correct": 471777,
+            "accuracy": "55.42%",
+            "misprediction_rate": "44.58%"
           }
         }
       ]
@@ -68,11 +68,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 5410180,
-            "count": 8918021,
-            "correct": 3507841,
-            "accuracy": "39.33%",
-            "misprediction_rate": "60.67%"
+            "mispredictions": 5615179,
+            "count": 13134996,
+            "correct": 7519817,
+            "accuracy": "57.25%",
+            "misprediction_rate": "42.75%"
           }
         }
       ]

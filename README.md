@@ -51,7 +51,7 @@ The config file for each algorithm is a JSON file detailing the configuration se
 
 The config file has the following fields:
 - `algorithm`: The name of the algorithm to use. This can be one of `always-taken`, `two-bit`, `gshare`, or `profiled`.
-- `max_lines`: The maximum number of lines to read from the trace file. Providing a value of -1 will read all lines from the trace file.
+- `max_lines`: A list of the maximum number of lines to read from the trace file. For each number in the list, the branch predictor simulator will run a simulation of the algorithm for that number of lines. If the value is -1, the simulator will run the simulation for the entire trace file. 
 - `configs`: A list of configuration objects for the algorithm. Each configuration object represents a particular configuration settings for the various fields of the algorithm. The branch predictor simulator will run a simulation of the algorithm for each configuration oject specified. The fields in each configuration object depend on the algorithm. These fields are described in the following section.
 
 ### Always Taken
@@ -62,7 +62,7 @@ An example configuration file for the `always-taken` algorithm is as follows:
 ```json
 {
     "algorithm": "always-taken",
-    "max_lines": 1000,
+    "max_lines": [1000, 5000],
     "configs": []
 }
 ```
@@ -77,7 +77,7 @@ An example configuration file for the `two-bit` algorithm is as follows:
 ```json
 {
     "algorithm": "two-bit",
-    "max_lines": -1,
+    "max_lines": [10000, -1],
     "configs": [
         {
             "table_size": 512,
@@ -101,7 +101,7 @@ An example configuration file for the `gshare` algorithm is as follows:
 ```json
 {
     "algorithm": "gshare",
-    "max_lines": 1000,
+    "max_lines": [10, 1000, 5000, -1],
     "configs": [
         {
             "table_size": 1024,
@@ -110,6 +110,10 @@ An example configuration file for the `gshare` algorithm is as follows:
         {
             "table_size": 2048,
             "initial_state": "WeaklyTaken"
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "WeaklyNotTaken"
         }
     ]
 }

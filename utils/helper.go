@@ -9,9 +9,15 @@ import (
 
 // BPConfig represents the configuration of the branch predictor
 type BPConfig struct {
-	Algorithm string          `json:"algorithm"`
-	MaxLines  int             `json:"max_lines"`
-	Configs   json.RawMessage `json:"configs"`
+	Algorithm    string          `json:"algorithm"`
+	MaxLinesList []int           `json:"max_lines"`
+	Configs      json.RawMessage `json:"configs"`
+}
+
+type Output struct {
+	Algorithm string                   `json:"algorithm"`
+	TraceFile string                   `json:"trace_file"`
+	Runs      []map[string]interface{} `json:"runs"`
 }
 
 // GetAlgoConfig returns the configuration for the specified algorithm
@@ -75,22 +81,19 @@ func GetBPConfig(configFile string) BPConfig {
 }
 
 // ExportResults exports the results of the branch predictor simulation to a JSON file
-func ExportResults(results []map[string]interface{}, bpConfig *BPConfig, traceFile string) {
+func ExportResults(runs []map[string]interface{}, bpConfig *BPConfig, traceFile string) {
 
 	// Split the trace file name to get the trace file name without the extension
 	traceFile = strings.Split(traceFile, "/")[1]
 	traceFile = strings.Split(traceFile, ".")[0]
 
-	outputs := map[string]interface{}{
-		"run": map[string]interface{}{
-			"algorithm":  bpConfig.Algorithm,
-			"max_lines":  bpConfig.MaxLines,
-			"trace_file": traceFile,
-		},
-		"stats": results,
+	output := Output{
+		Algorithm: bpConfig.Algorithm,
+		TraceFile: traceFile,
+		Runs:      runs,
 	}
 
-	jsonOutput, err := json.MarshalIndent(outputs, "", "  ")
+	jsonOutput, err := json.MarshalIndent(output, "", "  ")
 	if err != nil {
 		panic(err)
 	}

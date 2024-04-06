@@ -1,6 +1,6 @@
 {
   "algorithm": "gshare",
-  "trace_file": "leela",
+  "trace_file": "povray",
   "runs": [
     {
       "max_lines": 1000,
@@ -11,11 +11,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 89,
+            "mispredictions": 90,
             "count": 949,
-            "correct": 860,
-            "accuracy": "90.62%",
-            "misprediction_rate": "9.38%"
+            "correct": 859,
+            "accuracy": "90.52%",
+            "misprediction_rate": "9.48%"
           }
         },
         {
@@ -50,11 +50,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 151,
+            "mispredictions": 150,
             "count": 949,
-            "correct": 798,
-            "accuracy": "84.09%",
-            "misprediction_rate": "15.91%"
+            "correct": 799,
+            "accuracy": "84.19%",
+            "misprediction_rate": "15.81%"
           }
         },
         {
@@ -63,11 +63,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 94,
+            "mispredictions": 96,
             "count": 949,
-            "correct": 855,
-            "accuracy": "90.09%",
-            "misprediction_rate": "9.91%"
+            "correct": 853,
+            "accuracy": "89.88%",
+            "misprediction_rate": "10.12%"
           }
         },
         {
@@ -76,11 +76,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 78,
+            "mispredictions": 80,
             "count": 949,
-            "correct": 871,
-            "accuracy": "91.78%",
-            "misprediction_rate": "8.22%"
+            "correct": 869,
+            "accuracy": "91.57%",
+            "misprediction_rate": "8.43%"
           }
         },
         {
@@ -89,11 +89,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 126,
+            "mispredictions": 127,
             "count": 949,
-            "correct": 823,
-            "accuracy": "86.72%",
-            "misprediction_rate": "13.28%"
+            "correct": 822,
+            "accuracy": "86.62%",
+            "misprediction_rate": "13.38%"
           }
         },
         {
@@ -102,11 +102,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 167,
+            "mispredictions": 166,
             "count": 949,
-            "correct": 782,
-            "accuracy": "82.40%",
-            "misprediction_rate": "17.60%"
+            "correct": 783,
+            "accuracy": "82.51%",
+            "misprediction_rate": "17.49%"
           }
         },
         {
@@ -115,11 +115,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 103,
+            "mispredictions": 104,
             "count": 949,
-            "correct": 846,
-            "accuracy": "89.15%",
-            "misprediction_rate": "10.85%"
+            "correct": 845,
+            "accuracy": "89.04%",
+            "misprediction_rate": "10.96%"
           }
         },
         {
@@ -128,11 +128,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 81,
+            "mispredictions": 83,
             "count": 949,
-            "correct": 868,
-            "accuracy": "91.46%",
-            "misprediction_rate": "8.54%"
+            "correct": 866,
+            "accuracy": "91.25%",
+            "misprediction_rate": "8.75%"
           }
         },
         {
@@ -141,11 +141,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 129,
+            "mispredictions": 130,
             "count": 949,
-            "correct": 820,
-            "accuracy": "86.41%",
-            "misprediction_rate": "13.59%"
+            "correct": 819,
+            "accuracy": "86.30%",
+            "misprediction_rate": "13.70%"
           }
         },
         {
@@ -154,11 +154,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 173,
+            "mispredictions": 172,
             "count": 949,
-            "correct": 776,
-            "accuracy": "81.77%",
-            "misprediction_rate": "18.23%"
+            "correct": 777,
+            "accuracy": "81.88%",
+            "misprediction_rate": "18.12%"
           }
         },
         {
@@ -167,11 +167,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 105,
+            "mispredictions": 103,
             "count": 949,
-            "correct": 844,
-            "accuracy": "88.94%",
-            "misprediction_rate": "11.06%"
+            "correct": 846,
+            "accuracy": "89.15%",
+            "misprediction_rate": "10.85%"
           }
         },
         {
@@ -193,11 +193,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 140,
+            "mispredictions": 139,
             "count": 949,
-            "correct": 809,
-            "accuracy": "85.25%",
-            "misprediction_rate": "14.75%"
+            "correct": 810,
+            "accuracy": "85.35%",
+            "misprediction_rate": "14.65%"
           }
         },
         {
@@ -206,11 +206,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 186,
+            "mispredictions": 184,
             "count": 949,
-            "correct": 763,
-            "accuracy": "80.40%",
-            "misprediction_rate": "19.60%"
+            "correct": 765,
+            "accuracy": "80.61%",
+            "misprediction_rate": "19.39%"
           }
         }
       ]
@@ -224,11 +224,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 1645,
-            "count": 8344,
-            "correct": 6699,
-            "accuracy": "80.29%",
-            "misprediction_rate": "19.71%"
+            "mispredictions": 1618,
+            "count": 8348,
+            "correct": 6730,
+            "accuracy": "80.62%",
+            "misprediction_rate": "19.38%"
           }
         },
         {
@@ -237,11 +237,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 1663,
-            "count": 8344,
-            "correct": 6681,
-            "accuracy": "80.07%",
-            "misprediction_rate": "19.93%"
+            "mispredictions": 1630,
+            "count": 8348,
+            "correct": 6718,
+            "accuracy": "80.47%",
+            "misprediction_rate": "19.53%"
           }
         },
         {
@@ -250,11 +250,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 1839,
-            "count": 8344,
-            "correct": 6505,
-            "accuracy": "77.96%",
-            "misprediction_rate": "22.04%"
+            "mispredictions": 1795,
+            "count": 8348,
+            "correct": 6553,
+            "accuracy": "78.50%",
+            "misprediction_rate": "21.50%"
           }
         },
         {
@@ -263,11 +263,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 1994,
-            "count": 8344,
-            "correct": 6350,
-            "accuracy": "76.10%",
-            "misprediction_rate": "23.90%"
+            "mispredictions": 1961,
+            "count": 8348,
+            "correct": 6387,
+            "accuracy": "76.51%",
+            "misprediction_rate": "23.49%"
           }
         },
         {
@@ -276,11 +276,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 1551,
-            "count": 8344,
-            "correct": 6793,
-            "accuracy": "81.41%",
-            "misprediction_rate": "18.59%"
+            "mispredictions": 1531,
+            "count": 8348,
+            "correct": 6817,
+            "accuracy": "81.66%",
+            "misprediction_rate": "18.34%"
           }
         },
         {
@@ -289,11 +289,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 1518,
-            "count": 8344,
-            "correct": 6826,
-            "accuracy": "81.81%",
-            "misprediction_rate": "18.19%"
+            "mispredictions": 1476,
+            "count": 8348,
+            "correct": 6872,
+            "accuracy": "82.32%",
+            "misprediction_rate": "17.68%"
           }
         },
         {
@@ -302,11 +302,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 1834,
-            "count": 8344,
-            "correct": 6510,
-            "accuracy": "78.02%",
-            "misprediction_rate": "21.98%"
+            "mispredictions": 1792,
+            "count": 8348,
+            "correct": 6556,
+            "accuracy": "78.53%",
+            "misprediction_rate": "21.47%"
           }
         },
         {
@@ -315,11 +315,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 2086,
-            "count": 8344,
-            "correct": 6258,
-            "accuracy": "75.00%",
-            "misprediction_rate": "25.00%"
+            "mispredictions": 2044,
+            "count": 8348,
+            "correct": 6304,
+            "accuracy": "75.52%",
+            "misprediction_rate": "24.48%"
           }
         },
         {
@@ -328,11 +328,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 1524,
-            "count": 8344,
-            "correct": 6820,
-            "accuracy": "81.74%",
-            "misprediction_rate": "18.26%"
+            "mispredictions": 1508,
+            "count": 8348,
+            "correct": 6840,
+            "accuracy": "81.94%",
+            "misprediction_rate": "18.06%"
           }
         },
         {
@@ -341,11 +341,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 1403,
-            "count": 8344,
-            "correct": 6941,
-            "accuracy": "83.19%",
-            "misprediction_rate": "16.81%"
+            "mispredictions": 1371,
+            "count": 8348,
+            "correct": 6977,
+            "accuracy": "83.58%",
+            "misprediction_rate": "16.42%"
           }
         },
         {
@@ -354,11 +354,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 1765,
-            "count": 8344,
-            "correct": 6579,
-            "accuracy": "78.85%",
-            "misprediction_rate": "21.15%"
+            "mispredictions": 1719,
+            "count": 8348,
+            "correct": 6629,
+            "accuracy": "79.41%",
+            "misprediction_rate": "20.59%"
           }
         },
         {
@@ -367,11 +367,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 2172,
-            "count": 8344,
-            "correct": 6172,
-            "accuracy": "73.97%",
-            "misprediction_rate": "26.03%"
+            "mispredictions": 2125,
+            "count": 8348,
+            "correct": 6223,
+            "accuracy": "74.54%",
+            "misprediction_rate": "25.46%"
           }
         },
         {
@@ -380,11 +380,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 1561,
-            "count": 8344,
-            "correct": 6783,
-            "accuracy": "81.29%",
-            "misprediction_rate": "18.71%"
+            "mispredictions": 1537,
+            "count": 8348,
+            "correct": 6811,
+            "accuracy": "81.59%",
+            "misprediction_rate": "18.41%"
           }
         },
         {
@@ -393,11 +393,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 1338,
-            "count": 8344,
-            "correct": 7006,
-            "accuracy": "83.96%",
-            "misprediction_rate": "16.04%"
+            "mispredictions": 1289,
+            "count": 8348,
+            "correct": 7059,
+            "accuracy": "84.56%",
+            "misprediction_rate": "15.44%"
           }
         },
         {
@@ -406,11 +406,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 1793,
-            "count": 8344,
-            "correct": 6551,
-            "accuracy": "78.51%",
-            "misprediction_rate": "21.49%"
+            "mispredictions": 1740,
+            "count": 8348,
+            "correct": 6608,
+            "accuracy": "79.16%",
+            "misprediction_rate": "20.84%"
           }
         },
         {
@@ -419,11 +419,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 2328,
-            "count": 8344,
-            "correct": 6016,
-            "accuracy": "72.10%",
-            "misprediction_rate": "27.90%"
+            "mispredictions": 2276,
+            "count": 8348,
+            "correct": 6072,
+            "accuracy": "72.74%",
+            "misprediction_rate": "27.26%"
           }
         }
       ]
@@ -437,11 +437,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 4160,
-            "count": 87155,
-            "correct": 82995,
-            "accuracy": "95.23%",
-            "misprediction_rate": "4.77%"
+            "mispredictions": 4176,
+            "count": 87097,
+            "correct": 82921,
+            "accuracy": "95.21%",
+            "misprediction_rate": "4.79%"
           }
         },
         {
@@ -450,11 +450,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 4177,
-            "count": 87155,
-            "correct": 82978,
-            "accuracy": "95.21%",
-            "misprediction_rate": "4.79%"
+            "mispredictions": 4190,
+            "count": 87097,
+            "correct": 82907,
+            "accuracy": "95.19%",
+            "misprediction_rate": "4.81%"
           }
         },
         {
@@ -463,9 +463,9 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 4354,
-            "count": 87155,
-            "correct": 82801,
+            "mispredictions": 4357,
+            "count": 87097,
+            "correct": 82740,
             "accuracy": "95.00%",
             "misprediction_rate": "5.00%"
           }
@@ -476,11 +476,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 4521,
-            "count": 87155,
-            "correct": 82634,
-            "accuracy": "94.81%",
-            "misprediction_rate": "5.19%"
+            "mispredictions": 4535,
+            "count": 87097,
+            "correct": 82562,
+            "accuracy": "94.79%",
+            "misprediction_rate": "5.21%"
           }
         },
         {
@@ -489,11 +489,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 3665,
-            "count": 87155,
-            "correct": 83490,
-            "accuracy": "95.79%",
-            "misprediction_rate": "4.21%"
+            "mispredictions": 3695,
+            "count": 87097,
+            "correct": 83402,
+            "accuracy": "95.76%",
+            "misprediction_rate": "4.24%"
           }
         },
         {
@@ -502,11 +502,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 3635,
-            "count": 87155,
-            "correct": 83520,
-            "accuracy": "95.83%",
-            "misprediction_rate": "4.17%"
+            "mispredictions": 3647,
+            "count": 87097,
+            "correct": 83450,
+            "accuracy": "95.81%",
+            "misprediction_rate": "4.19%"
           }
         },
         {
@@ -515,11 +515,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 3993,
-            "count": 87155,
-            "correct": 83162,
-            "accuracy": "95.42%",
-            "misprediction_rate": "4.58%"
+            "mispredictions": 4009,
+            "count": 87097,
+            "correct": 83088,
+            "accuracy": "95.40%",
+            "misprediction_rate": "4.60%"
           }
         },
         {
@@ -528,11 +528,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 4294,
-            "count": 87155,
-            "correct": 82861,
-            "accuracy": "95.07%",
-            "misprediction_rate": "4.93%"
+            "mispredictions": 4313,
+            "count": 87097,
+            "correct": 82784,
+            "accuracy": "95.05%",
+            "misprediction_rate": "4.95%"
           }
         },
         {
@@ -541,11 +541,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 3596,
-            "count": 87155,
-            "correct": 83559,
-            "accuracy": "95.87%",
-            "misprediction_rate": "4.13%"
+            "mispredictions": 3618,
+            "count": 87097,
+            "correct": 83479,
+            "accuracy": "95.85%",
+            "misprediction_rate": "4.15%"
           }
         },
         {
@@ -554,11 +554,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 3464,
-            "count": 87155,
-            "correct": 83691,
-            "accuracy": "96.03%",
-            "misprediction_rate": "3.97%"
+            "mispredictions": 3466,
+            "count": 87097,
+            "correct": 83631,
+            "accuracy": "96.02%",
+            "misprediction_rate": "3.98%"
           }
         },
         {
@@ -567,11 +567,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 3935,
-            "count": 87155,
-            "correct": 83220,
-            "accuracy": "95.49%",
-            "misprediction_rate": "4.51%"
+            "mispredictions": 3916,
+            "count": 87097,
+            "correct": 83181,
+            "accuracy": "95.50%",
+            "misprediction_rate": "4.50%"
           }
         },
         {
@@ -580,11 +580,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 4501,
-            "count": 87155,
-            "correct": 82654,
-            "accuracy": "94.84%",
-            "misprediction_rate": "5.16%"
+            "mispredictions": 4510,
+            "count": 87097,
+            "correct": 82587,
+            "accuracy": "94.82%",
+            "misprediction_rate": "5.18%"
           }
         },
         {
@@ -593,9 +593,9 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 3241,
-            "count": 87155,
-            "correct": 83914,
+            "mispredictions": 3243,
+            "count": 87097,
+            "correct": 83854,
             "accuracy": "96.28%",
             "misprediction_rate": "3.72%"
           }
@@ -606,11 +606,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 2909,
-            "count": 87155,
-            "correct": 84246,
-            "accuracy": "96.66%",
-            "misprediction_rate": "3.34%"
+            "mispredictions": 2869,
+            "count": 87097,
+            "correct": 84228,
+            "accuracy": "96.71%",
+            "misprediction_rate": "3.29%"
           }
         },
         {
@@ -619,11 +619,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 3607,
-            "count": 87155,
-            "correct": 83548,
-            "accuracy": "95.86%",
-            "misprediction_rate": "4.14%"
+            "mispredictions": 3558,
+            "count": 87097,
+            "correct": 83539,
+            "accuracy": "95.91%",
+            "misprediction_rate": "4.09%"
           }
         },
         {
@@ -632,11 +632,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 4482,
-            "count": 87155,
-            "correct": 82673,
-            "accuracy": "94.86%",
-            "misprediction_rate": "5.14%"
+            "mispredictions": 4438,
+            "count": 87097,
+            "correct": 82659,
+            "accuracy": "94.90%",
+            "misprediction_rate": "5.10%"
           }
         }
       ]
@@ -650,11 +650,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 26735,
-            "count": 668024,
-            "correct": 641289,
-            "accuracy": "96.00%",
-            "misprediction_rate": "4.00%"
+            "mispredictions": 42750,
+            "count": 782158,
+            "correct": 739408,
+            "accuracy": "94.53%",
+            "misprediction_rate": "5.47%"
           }
         },
         {
@@ -663,11 +663,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 26752,
-            "count": 668024,
-            "correct": 641272,
-            "accuracy": "96.00%",
-            "misprediction_rate": "4.00%"
+            "mispredictions": 42765,
+            "count": 782158,
+            "correct": 739393,
+            "accuracy": "94.53%",
+            "misprediction_rate": "5.47%"
           }
         },
         {
@@ -676,11 +676,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 26929,
-            "count": 668024,
-            "correct": 641095,
-            "accuracy": "95.97%",
-            "misprediction_rate": "4.03%"
+            "mispredictions": 42932,
+            "count": 782158,
+            "correct": 739226,
+            "accuracy": "94.51%",
+            "misprediction_rate": "5.49%"
           }
         },
         {
@@ -689,11 +689,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 27095,
-            "count": 668024,
-            "correct": 640929,
-            "accuracy": "95.94%",
-            "misprediction_rate": "4.06%"
+            "mispredictions": 43112,
+            "count": 782158,
+            "correct": 739046,
+            "accuracy": "94.49%",
+            "misprediction_rate": "5.51%"
           }
         },
         {
@@ -702,11 +702,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 19603,
-            "count": 668024,
-            "correct": 648421,
-            "accuracy": "97.07%",
-            "misprediction_rate": "2.93%"
+            "mispredictions": 32973,
+            "count": 782158,
+            "correct": 749185,
+            "accuracy": "95.78%",
+            "misprediction_rate": "4.22%"
           }
         },
         {
@@ -715,11 +715,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 19580,
-            "count": 668024,
-            "correct": 648444,
-            "accuracy": "97.07%",
-            "misprediction_rate": "2.93%"
+            "mispredictions": 32941,
+            "count": 782158,
+            "correct": 749217,
+            "accuracy": "95.79%",
+            "misprediction_rate": "4.21%"
           }
         },
         {
@@ -728,11 +728,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 19945,
-            "count": 668024,
-            "correct": 648079,
-            "accuracy": "97.01%",
-            "misprediction_rate": "2.99%"
+            "mispredictions": 33279,
+            "count": 782158,
+            "correct": 748879,
+            "accuracy": "95.75%",
+            "misprediction_rate": "4.25%"
           }
         },
         {
@@ -741,11 +741,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 20275,
-            "count": 668024,
-            "correct": 647749,
-            "accuracy": "96.96%",
-            "misprediction_rate": "3.04%"
+            "mispredictions": 33605,
+            "count": 782158,
+            "correct": 748553,
+            "accuracy": "95.70%",
+            "misprediction_rate": "4.30%"
           }
         },
         {
@@ -754,11 +754,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 15511,
-            "count": 668024,
-            "correct": 652513,
-            "accuracy": "97.68%",
-            "misprediction_rate": "2.32%"
+            "mispredictions": 26379,
+            "count": 782158,
+            "correct": 755779,
+            "accuracy": "96.63%",
+            "misprediction_rate": "3.37%"
           }
         },
         {
@@ -767,11 +767,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 15395,
-            "count": 668024,
-            "correct": 652629,
-            "accuracy": "97.70%",
-            "misprediction_rate": "2.30%"
+            "mispredictions": 26310,
+            "count": 782158,
+            "correct": 755848,
+            "accuracy": "96.64%",
+            "misprediction_rate": "3.36%"
           }
         },
         {
@@ -780,11 +780,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 15938,
-            "count": 668024,
-            "correct": 652086,
-            "accuracy": "97.61%",
-            "misprediction_rate": "2.39%"
+            "mispredictions": 26944,
+            "count": 782158,
+            "correct": 755214,
+            "accuracy": "96.56%",
+            "misprediction_rate": "3.44%"
           }
         },
         {
@@ -793,11 +793,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 16596,
-            "count": 668024,
-            "correct": 651428,
-            "accuracy": "97.52%",
-            "misprediction_rate": "2.48%"
+            "mispredictions": 27697,
+            "count": 782158,
+            "correct": 754461,
+            "accuracy": "96.46%",
+            "misprediction_rate": "3.54%"
           }
         },
         {
@@ -806,11 +806,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 12691,
-            "count": 668024,
-            "correct": 655333,
-            "accuracy": "98.10%",
-            "misprediction_rate": "1.90%"
+            "mispredictions": 20908,
+            "count": 782158,
+            "correct": 761250,
+            "accuracy": "97.33%",
+            "misprediction_rate": "2.67%"
           }
         },
         {
@@ -819,11 +819,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 12240,
-            "count": 668024,
-            "correct": 655784,
-            "accuracy": "98.17%",
-            "misprediction_rate": "1.83%"
+            "mispredictions": 20609,
+            "count": 782158,
+            "correct": 761549,
+            "accuracy": "97.37%",
+            "misprediction_rate": "2.63%"
           }
         },
         {
@@ -832,11 +832,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 13048,
-            "count": 668024,
-            "correct": 654976,
-            "accuracy": "98.05%",
-            "misprediction_rate": "1.95%"
+            "mispredictions": 21911,
+            "count": 782158,
+            "correct": 760247,
+            "accuracy": "97.20%",
+            "misprediction_rate": "2.80%"
           }
         },
         {
@@ -845,11 +845,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 14212,
-            "count": 668024,
-            "correct": 653812,
-            "accuracy": "97.87%",
-            "misprediction_rate": "2.13%"
+            "mispredictions": 23514,
+            "count": 782158,
+            "correct": 758644,
+            "accuracy": "96.99%",
+            "misprediction_rate": "3.01%"
           }
         }
       ]
@@ -863,11 +863,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 415811,
-            "count": 8918021,
-            "correct": 8502210,
-            "accuracy": "95.34%",
-            "misprediction_rate": "4.66%"
+            "mispredictions": 857551,
+            "count": 10107578,
+            "correct": 9250027,
+            "accuracy": "91.52%",
+            "misprediction_rate": "8.48%"
           }
         },
         {
@@ -876,11 +876,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 415828,
-            "count": 8918021,
-            "correct": 8502193,
-            "accuracy": "95.34%",
-            "misprediction_rate": "4.66%"
+            "mispredictions": 857566,
+            "count": 10107578,
+            "correct": 9250012,
+            "accuracy": "91.52%",
+            "misprediction_rate": "8.48%"
           }
         },
         {
@@ -889,11 +889,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 416005,
-            "count": 8918021,
-            "correct": 8502016,
-            "accuracy": "95.34%",
-            "misprediction_rate": "4.66%"
+            "mispredictions": 857733,
+            "count": 10107578,
+            "correct": 9249845,
+            "accuracy": "91.51%",
+            "misprediction_rate": "8.49%"
           }
         },
         {
@@ -902,11 +902,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 416171,
-            "count": 8918021,
-            "correct": 8501850,
-            "accuracy": "95.33%",
-            "misprediction_rate": "4.67%"
+            "mispredictions": 857913,
+            "count": 10107578,
+            "correct": 9249665,
+            "accuracy": "91.51%",
+            "misprediction_rate": "8.49%"
           }
         },
         {
@@ -915,11 +915,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 263336,
-            "count": 8918021,
-            "correct": 8654685,
-            "accuracy": "97.05%",
-            "misprediction_rate": "2.95%"
+            "mispredictions": 601629,
+            "count": 10107578,
+            "correct": 9505949,
+            "accuracy": "94.05%",
+            "misprediction_rate": "5.95%"
           }
         },
         {
@@ -928,11 +928,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 263313,
-            "count": 8918021,
-            "correct": 8654708,
-            "accuracy": "97.05%",
-            "misprediction_rate": "2.95%"
+            "mispredictions": 601597,
+            "count": 10107578,
+            "correct": 9505981,
+            "accuracy": "94.05%",
+            "misprediction_rate": "5.95%"
           }
         },
         {
@@ -941,11 +941,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 263678,
-            "count": 8918021,
-            "correct": 8654343,
-            "accuracy": "97.04%",
-            "misprediction_rate": "2.96%"
+            "mispredictions": 601935,
+            "count": 10107578,
+            "correct": 9505643,
+            "accuracy": "94.04%",
+            "misprediction_rate": "5.96%"
           }
         },
         {
@@ -954,11 +954,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 264008,
-            "count": 8918021,
-            "correct": 8654013,
-            "accuracy": "97.04%",
-            "misprediction_rate": "2.96%"
+            "mispredictions": 602261,
+            "count": 10107578,
+            "correct": 9505317,
+            "accuracy": "94.04%",
+            "misprediction_rate": "5.96%"
           }
         },
         {
@@ -967,11 +967,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 191456,
-            "count": 8918021,
-            "correct": 8726565,
-            "accuracy": "97.85%",
-            "misprediction_rate": "2.15%"
+            "mispredictions": 380636,
+            "count": 10107578,
+            "correct": 9726942,
+            "accuracy": "96.23%",
+            "misprediction_rate": "3.77%"
           }
         },
         {
@@ -980,11 +980,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 191341,
-            "count": 8918021,
-            "correct": 8726680,
-            "accuracy": "97.85%",
-            "misprediction_rate": "2.15%"
+            "mispredictions": 380570,
+            "count": 10107578,
+            "correct": 9727008,
+            "accuracy": "96.23%",
+            "misprediction_rate": "3.77%"
           }
         },
         {
@@ -993,11 +993,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 191886,
-            "count": 8918021,
-            "correct": 8726135,
-            "accuracy": "97.85%",
-            "misprediction_rate": "2.15%"
+            "mispredictions": 381204,
+            "count": 10107578,
+            "correct": 9726374,
+            "accuracy": "96.23%",
+            "misprediction_rate": "3.77%"
           }
         },
         {
@@ -1006,11 +1006,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 192545,
-            "count": 8918021,
-            "correct": 8725476,
-            "accuracy": "97.84%",
-            "misprediction_rate": "2.16%"
+            "mispredictions": 381957,
+            "count": 10107578,
+            "correct": 9725621,
+            "accuracy": "96.22%",
+            "misprediction_rate": "3.78%"
           }
         },
         {
@@ -1019,11 +1019,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 167869,
-            "count": 8918021,
-            "correct": 8750152,
-            "accuracy": "98.12%",
-            "misprediction_rate": "1.88%"
+            "mispredictions": 240036,
+            "count": 10107578,
+            "correct": 9867542,
+            "accuracy": "97.63%",
+            "misprediction_rate": "2.37%"
           }
         },
         {
@@ -1032,11 +1032,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 167418,
-            "count": 8918021,
-            "correct": 8750603,
-            "accuracy": "98.12%",
-            "misprediction_rate": "1.88%"
+            "mispredictions": 239745,
+            "count": 10107578,
+            "correct": 9867833,
+            "accuracy": "97.63%",
+            "misprediction_rate": "2.37%"
           }
         },
         {
@@ -1045,11 +1045,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 168229,
-            "count": 8918021,
-            "correct": 8749792,
-            "accuracy": "98.11%",
-            "misprediction_rate": "1.89%"
+            "mispredictions": 241080,
+            "count": 10107578,
+            "correct": 9866498,
+            "accuracy": "97.61%",
+            "misprediction_rate": "2.39%"
           }
         },
         {
@@ -1058,11 +1058,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 169397,
-            "count": 8918021,
-            "correct": 8748624,
-            "accuracy": "98.10%",
-            "misprediction_rate": "1.90%"
+            "mispredictions": 242725,
+            "count": 10107578,
+            "correct": 9864853,
+            "accuracy": "97.60%",
+            "misprediction_rate": "2.40%"
           }
         }
       ]

@@ -1,0 +1,81 @@
+{
+  "algorithm": "always-taken",
+  "trace_file": "povray",
+  "runs": [
+    {
+      "max_lines": 1000,
+      "stats": [
+        {
+          "config": {},
+          "result": {
+            "mispredictions": 587,
+            "count": 949,
+            "correct": 362,
+            "accuracy": "38.15%",
+            "misprediction_rate": "61.85%"
+          }
+        }
+      ]
+    },
+    {
+      "max_lines": 10000,
+      "stats": [
+        {
+          "config": {},
+          "result": {
+            "mispredictions": 5235,
+            "count": 8348,
+            "correct": 3113,
+            "accuracy": "37.29%",
+            "misprediction_rate": "62.71%"
+          }
+        }
+      ]
+    },
+    {
+      "max_lines": 100000,
+      "stats": [
+        {
+          "config": {},
+          "result": {
+            "mispredictions": 48069,
+            "count": 87097,
+            "correct": 39028,
+            "accuracy": "44.81%",
+            "misprediction_rate": "55.19%"
+          }
+        }
+      ]
+    },
+    {
+      "max_lines": 1000000,
+      "stats": [
+        {
+          "config": {},
+          "result": {
+            "mispredictions": 465783,
+            "count": 782158,
+            "correct": 316375,
+            "accuracy": "40.45%",
+            "misprediction_rate": "59.55%"
+          }
+        }
+      ]
+    },
+    {
+      "max_lines": -1,
+      "stats": [
+        {
+          "config": {},
+          "result": {
+            "mispredictions": 6775606,
+            "count": 10107578,
+            "correct": 3331972,
+            "accuracy": "32.97%",
+            "misprediction_rate": "67.03%"
+          }
+        }
+      ]
+    }
+  ]
+}
