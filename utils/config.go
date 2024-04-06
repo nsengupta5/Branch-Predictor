@@ -25,6 +25,10 @@ type GShareConfig struct {
 	InitialState string `json:"initial_state"`
 }
 
+// ProfiledConfig represents the configuration of the profiled branch predictor
+type ProfiledConfig struct {
+}
+
 // No validation required for always taken predictor
 func (atc AlwaysTakenConfig) Validate() error {
 	return nil
@@ -48,4 +52,9 @@ func (gsc GShareConfig) Validate() error {
 	default:
 		return errors.New("Invalid table size. Please provide a valid table size")
 	}
+}
+
+// No validation required for profiled predictor
+func (pf *ProfiledConfig) Validate() error {
+	return nil
 }

@@ -39,7 +39,7 @@ func (at *AlwaysTaken) Predict(instructions []instruction.Instruction) utils.Pre
 			}
 
 			// Update the metadata
-			at.UpdateMetaData(instruction, isMispredicted)
+			at.metadata.Update(instruction, isMispredicted)
 		}
 	}
 
@@ -49,15 +49,4 @@ func (at *AlwaysTaken) Predict(instructions []instruction.Instruction) utils.Pre
 	}
 
 	return prediction
-}
-
-// Updates the metadata for the given instruction, based on whether it was mispredicted or not
-func (at *AlwaysTaken) UpdateMetaData(instruction instruction.Instruction, isMispredicted bool) {
-	// If the metadata already exists for the given instruction, update it
-	if at.metadata.Exists(instruction.PCAddress) {
-		at.metadata.Update(instruction, isMispredicted)
-	} else {
-		at.metadata.AddBranch(instruction.PCAddress)
-		at.metadata.Update(instruction, isMispredicted)
-	}
 }

@@ -8,7 +8,6 @@ import (
 // Algorithm is an interface that defines the methods that a branch predictor algorithm should implement
 type Algorithm interface {
 	Predict(il []instruction.Instruction) utils.Prediction
-	UpdateMetaData(instruction instruction.Instruction, isMispredicted bool)
 }
 
 // BranchPredictor is a struct that contains the branch prediction algorithm and its metadata

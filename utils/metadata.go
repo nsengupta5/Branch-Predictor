@@ -48,9 +48,3 @@ func (md *MetaData) Update(is instruction.Instruction, misprediction bool) {
 
 	md.BranchAddress[is.PCAddress] = branchInfo
 }
-
-// Exists checks if the branch address exists in the metadata
-func (md *MetaData) Exists(branchAddress string) bool {
-	_, ok := md.BranchAddress[branchAddress]
-	return ok
-}

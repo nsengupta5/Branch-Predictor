@@ -101,7 +101,7 @@ func (gs *Gshare) Predict(instructions []instruction.Instruction) utils.Predicti
 			}
 
 			// Update the metadata
-			gs.UpdateMetaData(instruction, isMispredicted)
+			gs.metadata.Update(instruction, isMispredicted)
 		}
 	}
 
@@ -130,14 +130,4 @@ func (gs *Gshare) updateGlobalHistoryRegister(taken bool) {
 		gs.globalHistoryRegister |= 1
 	}
 	gs.globalHistoryRegister &= (1 << gs.historyLength) - 1
-}
-
-// UpdateMetaData updates the metadata for the given instruction, based on whether it was mispredicted or not
-func (gs *Gshare) UpdateMetaData(instruction instruction.Instruction, isMispredicted bool) {
-	if gs.metadata.Exists(instruction.PCAddress) {
-		gs.metadata.Update(instruction, isMispredicted)
-	} else {
-		gs.metadata.AddBranch(instruction.PCAddress)
-		gs.metadata.Update(instruction, isMispredicted)
-	}
 }

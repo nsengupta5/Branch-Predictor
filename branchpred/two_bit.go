@@ -97,24 +97,12 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Predicti
 			}
 
 			// Update the metadata
-			tb.UpdateMetaData(instruction, isMispredicted)
+			tb.metadata.Update(instruction, isMispredicted)
 		}
 	}
 
-	prediction := utils.Prediction{
+	return utils.Prediction{
 		Mispredictions: mispredictions,
 		Count:          totalBranches,
-	}
-
-	return prediction
-}
-
-// UpdateMetaData updates the metadata for the given instruction, based on whether it was mispredicted or not
-func (tb *TwoBit) UpdateMetaData(instruction instruction.Instruction, isMispredicted bool) {
-	if tb.metadata.Exists(instruction.PCAddress) {
-		tb.metadata.Update(instruction, isMispredicted)
-	} else {
-		tb.metadata.AddBranch(instruction.PCAddress)
-		tb.metadata.Update(instruction, isMispredicted)
 	}
 }
