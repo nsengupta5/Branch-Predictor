@@ -1,0 +1,25 @@
+{
+  "algorithm": "two-bit-profiled",
+  "trace_file": "xz",
+  "runs": [
+    {
+      "max_lines": -1,
+      "stats": [
+        {
+          "config": {
+            "table_size": 512,
+            "strata_size": 1,
+            "strata_proportion": 1
+          },
+          "result": {
+            "mispredictions": 1983822,
+            "count": 12876410,
+            "correct": 10892588,
+            "accuracy": "84.59%",
+            "misprediction_rate": "15.41%"
+          }
+        }
+      ]
+    }
+  ]
+}

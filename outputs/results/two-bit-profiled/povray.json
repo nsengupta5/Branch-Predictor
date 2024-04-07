@@ -1,0 +1,116 @@
+{
+  "algorithm": "two-bit-profiled",
+  "trace_file": "povray",
+  "runs": [
+    {
+      "max_lines": 100000,
+      "stats": [
+        {
+          "config": {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 8,
+            "strata_proportion": 0.7
+          },
+          "result": {
+            "mispredictions": 5277,
+            "count": 87097,
+            "correct": 81820,
+            "accuracy": "93.94%",
+            "misprediction_rate": "6.06%"
+          }
+        },
+        {
+          "config": {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 9,
+            "strata_proportion": 0.7
+          },
+          "result": {
+            "mispredictions": 5278,
+            "count": 87097,
+            "correct": 81819,
+            "accuracy": "93.94%",
+            "misprediction_rate": "6.06%"
+          }
+        },
+        {
+          "config": {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.7
+          },
+          "result": {
+            "mispredictions": 5284,
+            "count": 87097,
+            "correct": 81813,
+            "accuracy": "93.93%",
+            "misprediction_rate": "6.07%"
+          }
+        },
+        {
+          "config": {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 11,
+            "strata_proportion": 0.7
+          },
+          "result": {
+            "mispredictions": 5270,
+            "count": 87097,
+            "correct": 81827,
+            "accuracy": "93.95%",
+            "misprediction_rate": "6.05%"
+          }
+        },
+        {
+          "config": {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 12,
+            "strata_proportion": 0.7
+          },
+          "result": {
+            "mispredictions": 5270,
+            "count": 87097,
+            "correct": 81827,
+            "accuracy": "93.95%",
+            "misprediction_rate": "6.05%"
+          }
+        },
+        {
+          "config": {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 13,
+            "strata_proportion": 0.7
+          },
+          "result": {
+            "mispredictions": 5272,
+            "count": 87097,
+            "correct": 81825,
+            "accuracy": "93.95%",
+            "misprediction_rate": "6.05%"
+          }
+        },
+        {
+          "config": {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 14,
+            "strata_proportion": 0.7
+          },
+          "result": {
+            "mispredictions": 5269,
+            "count": 87097,
+            "correct": 81828,
+            "accuracy": "93.95%",
+            "misprediction_rate": "6.05%"
+          }
+        }
+      ]
+    }
+  ]
+}

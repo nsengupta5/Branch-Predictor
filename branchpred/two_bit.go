@@ -57,6 +57,7 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Predicti
 			// Extract the lower index bits from the PC address
 			pcAddress := pcAddressInt & mask
 			taken := instruction.Taken
+			direct := instruction.Direct
 			isMispredicted := false
 
 			// Add the PC address to the prediction table if it does not exist
@@ -97,7 +98,7 @@ func (tb *TwoBit) Predict(instructions []instruction.Instruction) utils.Predicti
 			}
 
 			// Update the metadata
-			tb.metadata.Update(instruction, isMispredicted)
+			tb.metadata.Update(taken, direct, pcAddress, isMispredicted, tb.predictionTable[pcAddress])
 		}
 	}
 

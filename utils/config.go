@@ -25,8 +25,12 @@ type GShareConfig struct {
 	InitialState string `json:"initial_state"`
 }
 
-// ProfiledConfig represents the configuration of the profiled branch predictor
-type ProfiledConfig struct {
+// TwoBitProfiledConfig represents the configuration of the two-bit profiled branch predictor
+type TwoBitProfiledConfig struct {
+	TableSize        uint64  `json:"table_size"`
+	InitialState     string  `json:"initial_state"`
+	StrataSize       uint64  `json:"strata_size"`
+	StrataProportion float64 `json:"strata_proportion"`
 }
 
 // No validation required for always taken predictor
@@ -54,7 +58,17 @@ func (gsc GShareConfig) Validate() error {
 	}
 }
 
-// No validation required for profiled predictor
-func (pf *ProfiledConfig) Validate() error {
+// Validate the gshare profiled configuration, ensuring that the table size and train proportion are valid
+func (tbpc TwoBitProfiledConfig) Validate() error {
+	switch tbpc.TableSize {
+	case 512, 1024, 2048, 4096:
+	default:
+		return errors.New("Invalid table size. Please provide a valid table size")
+	}
+
+	if tbpc.StrataProportion < 0 || tbpc.StrataProportion > 1 {
+		return errors.New("Invalid train proportion. Please provide a valid train proportion")
+	}
+
 	return nil
 }

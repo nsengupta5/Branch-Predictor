@@ -1,0 +1,48 @@
+{
+    "algorithm": "two-bit-profiled",
+    "max_lines": [1000000],
+    "configs": [
+        {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 6,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 9,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 11,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 12,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 13,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 512,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 14,
+            "strata_proportion": 0.2
+        }
+    ]
+}

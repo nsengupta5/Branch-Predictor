@@ -1,0 +1,25 @@
+{
+  "algorithm": "two-bit-profiled",
+  "trace_file": "bwaves",
+  "runs": [
+    {
+      "max_lines": -1,
+      "stats": [
+        {
+          "config": {
+            "table_size": 512,
+            "strata_size": 4,
+            "strata_proportion": 0.5
+          },
+          "result": {
+            "mispredictions": 30841,
+            "count": 9149338,
+            "correct": 9118497,
+            "accuracy": "99.66%",
+            "misprediction_rate": "0.34%"
+          }
+        }
+      ]
+    }
+  ]
+}

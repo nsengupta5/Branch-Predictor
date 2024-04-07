@@ -59,6 +59,21 @@ func GetAlgoConfig(bpConfig *BPConfig) []Config {
 			configs = append(configs, config)
 		}
 		return configs
+
+	case "two-bit-profiled":
+		var tbpConfigs []TwoBitProfiledConfig
+		err := json.Unmarshal(bpConfig.Configs, &tbpConfigs)
+		if err != nil {
+			panic(err)
+		}
+
+		var configs []Config
+		for _, config := range tbpConfigs {
+			configs = append(configs, config)
+		}
+
+		return configs
+
 	default:
 		panic("Invalid algorithm")
 	}
@@ -105,4 +120,24 @@ func ExportResults(runs []map[string]interface{}, bpConfig *BPConfig, traceFile 
 	}
 
 	fmt.Printf("Results written to %s\n", outputFile)
+}
+
+func ExportMetadata(metadataRuns []map[string]interface{}, bpConfig *BPConfig, traceFile string) {
+	// Export the metadata to a JSON file
+	jsonOutput, err := json.MarshalIndent(metadataRuns, "", "    ")
+	if err != nil {
+		panic(err)
+	}
+
+	// Split the trace file name to get the trace file name without the extension
+	traceFile = strings.Split(traceFile, "/")[1]
+	traceFile = strings.Split(traceFile, ".")[0]
+
+	outputFile := fmt.Sprintf("outputs/metadata/%s/%s.json", bpConfig.Algorithm, traceFile)
+	err = os.WriteFile(outputFile, jsonOutput, 0644)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("Metadata written to %s\n", outputFile)
 }

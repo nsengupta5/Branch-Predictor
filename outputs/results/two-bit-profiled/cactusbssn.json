@@ -1,5 +1,5 @@
 {
-  "algorithm": "two-bit",
+  "algorithm": "two-bit-profiled",
   "trace_file": "cactusbssn",
   "runs": [
     {
@@ -8,12 +8,14 @@
         {
           "config": {
             "table_size": 512,
-            "initial_state": "StronglyNotTaken"
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 2,
+            "strata_proportion": 0.5
           },
           "result": {
-            "mispredictions": 1004914,
+            "mispredictions": 1005013,
             "count": 10545704,
-            "correct": 9540790,
+            "correct": 9540691,
             "accuracy": "90.47%",
             "misprediction_rate": "9.53%"
           }
@@ -21,12 +23,14 @@
         {
           "config": {
             "table_size": 512,
-            "initial_state": "WeaklyNotTaken"
+            "initial_state": "WeaklyNotTaken",
+            "strata_size": 2,
+            "strata_proportion": 0.5
           },
           "result": {
-            "mispredictions": 1004913,
+            "mispredictions": 1005013,
             "count": 10545704,
-            "correct": 9540791,
+            "correct": 9540691,
             "accuracy": "90.47%",
             "misprediction_rate": "9.53%"
           }
@@ -34,12 +38,14 @@
         {
           "config": {
             "table_size": 512,
-            "initial_state": "WeaklyTaken"
+            "initial_state": "WeaklyTaken",
+            "strata_size": 2,
+            "strata_proportion": 0.5
           },
           "result": {
-            "mispredictions": 1005051,
+            "mispredictions": 1005013,
             "count": 10545704,
-            "correct": 9540653,
+            "correct": 9540691,
             "accuracy": "90.47%",
             "misprediction_rate": "9.53%"
           }
@@ -47,12 +53,14 @@
         {
           "config": {
             "table_size": 512,
-            "initial_state": "StronglyTaken"
+            "initial_state": "StronglyTaken",
+            "strata_size": 2,
+            "strata_proportion": 0.5
           },
           "result": {
-            "mispredictions": 1005250,
+            "mispredictions": 1005013,
             "count": 10545704,
-            "correct": 9540454,
+            "correct": 9540691,
             "accuracy": "90.47%",
             "misprediction_rate": "9.53%"
           }

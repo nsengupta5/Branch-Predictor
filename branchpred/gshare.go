@@ -58,6 +58,7 @@ func (gs *Gshare) Predict(instructions []instruction.Instruction) utils.Predicti
 			// Extract the lower index bits from the PC address
 			pcAddress = pcAddress & mask
 			taken := instruction.Taken
+			direct := instruction.Direct
 			isMispredicted := false
 
 			// Update the global history register based on the outcome of the branch instruction
@@ -101,7 +102,7 @@ func (gs *Gshare) Predict(instructions []instruction.Instruction) utils.Predicti
 			}
 
 			// Update the metadata
-			gs.metadata.Update(instruction, isMispredicted)
+			gs.metadata.Update(taken, direct, pcAddress, isMispredicted, gs.patternHistoryTable[pcAddress])
 		}
 	}
 

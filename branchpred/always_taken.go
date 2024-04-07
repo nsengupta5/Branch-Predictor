@@ -39,7 +39,9 @@ func (at *AlwaysTaken) Predict(instructions []instruction.Instruction) utils.Pre
 			}
 
 			// Update the metadata
-			at.metadata.Update(instruction, isMispredicted)
+			// The AlwaysTaken algorithm does not use any states,
+			// so the state is set to 4, (not a valid state for other algorithms)
+			at.metadata.Update(false, false, 0, isMispredicted, 4)
 		}
 	}
 

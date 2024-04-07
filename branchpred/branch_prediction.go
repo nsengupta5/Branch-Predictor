@@ -36,6 +36,18 @@ func NewBranchPredictor(config utils.Config) *BranchPredictor {
 		algo := NewGshare(&cfg, metadata)
 		return &BranchPredictor{Algorithm: algo, Metadata: metadata}
 
+	case utils.TwoBitProfiledConfig:
+		var tableSize uint64 = cfg.TableSize
+		metadata := utils.NewMetaData(tableSize)
+		algo := NewTwoBitProfiled(&cfg, metadata)
+		return &BranchPredictor{Algorithm: algo, Metadata: metadata}
+
+	case utils.GShareProfiledConfig:
+		var tableSize uint64 = cfg.TableSize
+		metadata := utils.NewMetaData(tableSize)
+		algo := NewGShareProfiled(&cfg, metadata)
+		return &BranchPredictor{Algorithm: algo, Metadata: metadata}
+
 	default:
 		return nil
 	}
