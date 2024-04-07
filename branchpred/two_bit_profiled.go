@@ -57,7 +57,8 @@ func (tbp *TwoBitProfiled) getProfilerInstructions(instructions []instruction.In
 	return sampledInstructions
 }
 
-func (tbp *TwoBitProfiled) profile(instructions []instruction.Instruction) {
+// Profile profiles the branches in the given instructions
+func (tbp *TwoBitProfiled) Profile(instructions []instruction.Instruction) {
 	profilerInstructions := tbp.getProfilerInstructions(instructions)
 	totalBranches := 0
 	mispredictions := 0
@@ -131,7 +132,7 @@ func (tbp *TwoBitProfiled) profile(instructions []instruction.Instruction) {
 
 // Predict predicts the outcome of the branches in the given instructions
 func (tbp *TwoBitProfiled) Predict(instructions []instruction.Instruction) utils.Prediction {
-	tbp.profile(instructions)
+	tbp.Profile(instructions)
 	totalBranches := 0
 	mispredictions := 0
 

@@ -33,16 +33,8 @@ func ReadTraceFile(traceFile string, maxLines int) ([]Instruction, error) {
 
 	var instructions []Instruction
 	scanner := bufio.NewScanner(file)
-	lineCount := 0
 
 	for scanner.Scan() {
-		lineCount++
-
-		// If maxLines is set and we've read the max number of lines, break
-		if maxLines >= 0 && lineCount > int(maxLines) {
-			break
-		}
-
 		line := scanner.Text()
 		fields := strings.Fields(line)
 
@@ -66,5 +58,17 @@ func ReadTraceFile(traceFile string, maxLines int) ([]Instruction, error) {
 		return nil, err
 	}
 
-	return instructions, nil
+	if maxLines < 0 {
+		return instructions, nil
+	}
+
+	totalInstructions := len(instructions)
+	startIndex := (totalInstructions - maxLines) / 2
+	endIndex := startIndex + maxLines
+
+	if endIndex > totalInstructions {
+		endIndex = totalInstructions
+	}
+
+	return instructions[startIndex:endIndex], nil
 }

@@ -3,7 +3,7 @@
   "trace_file": "leela",
   "runs": [
     {
-      "max_lines": -1,
+      "max_lines": 10000,
       "stats": [
         {
           "config": {
@@ -11,11 +11,11 @@
             "initial_state": "StronglyNotTaken"
           },
           "result": {
-            "mispredictions": 1783226,
-            "count": 8918021,
-            "correct": 7134795,
-            "accuracy": "80.00%",
-            "misprediction_rate": "20.00%"
+            "mispredictions": 1525,
+            "count": 5800,
+            "correct": 4275,
+            "accuracy": "73.71%",
+            "misprediction_rate": "26.29%"
           }
         },
         {
@@ -24,11 +24,11 @@
             "initial_state": "WeaklyNotTaken"
           },
           "result": {
-            "mispredictions": 1783221,
-            "count": 8918021,
-            "correct": 7134800,
-            "accuracy": "80.00%",
-            "misprediction_rate": "20.00%"
+            "mispredictions": 1522,
+            "count": 5800,
+            "correct": 4278,
+            "accuracy": "73.76%",
+            "misprediction_rate": "26.24%"
           }
         },
         {
@@ -37,11 +37,11 @@
             "initial_state": "WeaklyTaken"
           },
           "result": {
-            "mispredictions": 1783357,
-            "count": 8918021,
-            "correct": 7134664,
-            "accuracy": "80.00%",
-            "misprediction_rate": "20.00%"
+            "mispredictions": 1529,
+            "count": 5800,
+            "correct": 4271,
+            "accuracy": "73.64%",
+            "misprediction_rate": "26.36%"
           }
         },
         {
@@ -50,11 +50,11 @@
             "initial_state": "StronglyTaken"
           },
           "result": {
-            "mispredictions": 1783534,
-            "count": 8918021,
-            "correct": 7134487,
-            "accuracy": "80.00%",
-            "misprediction_rate": "20.00%"
+            "mispredictions": 1538,
+            "count": 5800,
+            "correct": 4262,
+            "accuracy": "73.48%",
+            "misprediction_rate": "26.52%"
           }
         }
       ]

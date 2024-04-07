@@ -8,11 +8,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 589,
-            "count": 949,
-            "correct": 360,
-            "accuracy": "37.93%",
-            "misprediction_rate": "62.07%"
+            "mispredictions": 475,
+            "count": 714,
+            "correct": 239,
+            "accuracy": "33.47%",
+            "misprediction_rate": "66.53%"
           }
         }
       ]
@@ -23,11 +23,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 5375,
-            "count": 8579,
-            "correct": 3204,
-            "accuracy": "37.35%",
-            "misprediction_rate": "62.65%"
+            "mispredictions": 4297,
+            "count": 6847,
+            "correct": 2550,
+            "accuracy": "37.24%",
+            "misprediction_rate": "62.76%"
           }
         }
       ]
@@ -38,11 +38,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 64040,
-            "count": 97276,
-            "correct": 33236,
-            "accuracy": "34.17%",
-            "misprediction_rate": "65.83%"
+            "mispredictions": 44073,
+            "count": 69922,
+            "correct": 25849,
+            "accuracy": "36.97%",
+            "misprediction_rate": "63.03%"
           }
         }
       ]
@@ -53,11 +53,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 409231,
-            "count": 711401,
-            "correct": 302170,
-            "accuracy": "42.48%",
-            "misprediction_rate": "57.52%"
+            "mispredictions": 438536,
+            "count": 700978,
+            "correct": 262442,
+            "accuracy": "37.44%",
+            "misprediction_rate": "62.56%"
           }
         }
       ]
