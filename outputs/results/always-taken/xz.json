@@ -8,11 +8,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 589,
-            "count": 949,
-            "correct": 360,
-            "accuracy": "37.93%",
-            "misprediction_rate": "62.07%"
+            "mispredictions": 381,
+            "count": 844,
+            "correct": 463,
+            "accuracy": "54.86%",
+            "misprediction_rate": "45.14%"
           }
         }
       ]
@@ -23,11 +23,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 5769,
-            "count": 9007,
-            "correct": 3238,
-            "accuracy": "35.95%",
-            "misprediction_rate": "64.05%"
+            "mispredictions": 3762,
+            "count": 8449,
+            "correct": 4687,
+            "accuracy": "55.47%",
+            "misprediction_rate": "44.53%"
           }
         }
       ]
@@ -38,11 +38,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 13182,
-            "count": 96565,
-            "correct": 83383,
-            "accuracy": "86.35%",
-            "misprediction_rate": "13.65%"
+            "mispredictions": 36341,
+            "count": 84756,
+            "correct": 48415,
+            "accuracy": "57.12%",
+            "misprediction_rate": "42.88%"
           }
         }
       ]
@@ -53,11 +53,26 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 163866,
-            "count": 911211,
-            "correct": 747345,
-            "accuracy": "82.02%",
-            "misprediction_rate": "17.98%"
+            "mispredictions": 369450,
+            "count": 845594,
+            "correct": 476144,
+            "accuracy": "56.31%",
+            "misprediction_rate": "43.69%"
+          }
+        }
+      ]
+    },
+    {
+      "max_lines": 10000000,
+      "stats": [
+        {
+          "config": {},
+          "result": {
+            "mispredictions": 3675660,
+            "count": 8433602,
+            "correct": 4757942,
+            "accuracy": "56.42%",
+            "misprediction_rate": "43.58%"
           }
         }
       ]

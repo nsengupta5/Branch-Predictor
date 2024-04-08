@@ -1,19 +1,7 @@
 {
     "algorithm": "two-bit-profiled",
-    "max_lines": [10000],
+    "max_lines": [1000, 10000, 100000, 1000000, 10000000, -1],
     "configs": [
-        {
-            "table_size": 512,
-            "initial_state": "StronglyNotTaken",
-            "strata_size": 6,
-            "strata_proportion": 0.2
-        },
-        {
-            "table_size": 512,
-            "initial_state": "StronglyNotTaken",
-            "strata_size": 9,
-            "strata_proportion": 0.2
-        },
         {
             "table_size": 512,
             "initial_state": "StronglyNotTaken",
@@ -22,26 +10,92 @@
         },
         {
             "table_size": 512,
-            "initial_state": "StronglyNotTaken",
-            "strata_size": 11,
+            "initial_state": "WeaklyNotTaken",
+            "strata_size": 10,
             "strata_proportion": 0.2
         },
         {
             "table_size": 512,
-            "initial_state": "StronglyNotTaken",
-            "strata_size": 12,
+            "initial_state": "WeaklyTaken",
+            "strata_size": 10,
             "strata_proportion": 0.2
         },
         {
             "table_size": 512,
-            "initial_state": "StronglyNotTaken",
-            "strata_size": 13,
+            "initial_state": "StronglyTaken",
+            "strata_size": 10,
             "strata_proportion": 0.2
         },
         {
-            "table_size": 512,
+            "table_size": 1024,
             "initial_state": "StronglyNotTaken",
-            "strata_size": 14,
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 1024,
+            "initial_state": "WeaklyNotTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 1024,
+            "initial_state": "WeaklyTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 1024,
+            "initial_state": "StronglyTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "WeaklyNotTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "WeaklyTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "StronglyTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "StronglyNotTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "WeaklyNotTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "WeaklyTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 4096,
+            "initial_state": "StronglyTaken",
+            "strata_size": 10,
             "strata_proportion": 0.2
         }
     ]

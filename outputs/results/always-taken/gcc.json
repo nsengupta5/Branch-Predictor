@@ -63,6 +63,21 @@
       ]
     },
     {
+      "max_lines": 10000000,
+      "stats": [
+        {
+          "config": {},
+          "result": {
+            "mispredictions": 4343311,
+            "count": 7001896,
+            "correct": 2658585,
+            "accuracy": "37.97%",
+            "misprediction_rate": "62.03%"
+          }
+        }
+      ]
+    },
+    {
       "max_lines": -1,
       "stats": [
         {

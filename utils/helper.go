@@ -122,6 +122,7 @@ func ExportResults(runs []map[string]interface{}, bpConfig *BPConfig, traceFile 
 	fmt.Printf("Results written to %s\n", outputFile)
 }
 
+// ExportMetadata exports the metadata of the branch predictor simulation to a JSON file
 func ExportMetadata(metadataRuns []map[string]interface{}, bpConfig *BPConfig, traceFile string) {
 	// Export the metadata to a JSON file
 	jsonOutput, err := json.MarshalIndent(metadataRuns, "", "    ")

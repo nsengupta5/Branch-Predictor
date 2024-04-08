@@ -58,10 +58,21 @@ func ReadTraceFile(traceFile string, maxLines int) ([]Instruction, error) {
 		return nil, err
 	}
 
+	// If maxLines is negative, return all instructions
 	if maxLines < 0 {
 		return instructions, nil
 	}
 
+	middlePortion := getMiddlePortion(instructions, maxLines)
+
+	return middlePortion, nil
+}
+
+// GetMiddlePortion returns the middle portion of the instructions
+// This avoids the initial and final instructions which are usually
+// not useful for branch prediction, whereas the middle portion
+// focuses on the core instructions that are useful for prediction.
+func getMiddlePortion(instructions []Instruction, maxLines int) []Instruction {
 	totalInstructions := len(instructions)
 	startIndex := (totalInstructions - maxLines) / 2
 	endIndex := startIndex + maxLines
@@ -70,5 +81,5 @@ func ReadTraceFile(traceFile string, maxLines int) ([]Instruction, error) {
 		endIndex = totalInstructions
 	}
 
-	return instructions[startIndex:endIndex], nil
+	return instructions[startIndex:endIndex]
 }

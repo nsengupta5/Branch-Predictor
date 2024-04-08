@@ -38,6 +38,9 @@ func NewTwoBitProfiled(config *utils.TwoBitProfiledConfig, metadata *utils.MetaD
 	}
 }
 
+// getProfilerInstructions returns a subset of the instructions to be used for profiling
+// The subset of the instruction is obtained using stratified sampling, where the instructions
+// are divided into strata and a sample of the instructions is taken from each stratum
 func (tbp *TwoBitProfiled) getProfilerInstructions(instructions []instruction.Instruction) []instruction.Instruction {
 	totalStrata := uint64(len(instructions)) / tbp.strataSize
 	sampledInstructions := make([]instruction.Instruction, 0)
@@ -51,6 +54,7 @@ func (tbp *TwoBitProfiled) getProfilerInstructions(instructions []instruction.In
 			end = uint64(len(instructions))
 		}
 
+		// Take the first sampleSize instructions from each stratum
 		sampledInstructions = append(sampledInstructions, instructions[start:end]...)
 	}
 
@@ -123,7 +127,7 @@ func (tbp *TwoBitProfiled) Profile(instructions []instruction.Instruction) {
 		}
 	}
 
-	// Initialize the most frequent state in the metadata
+	// Initialize the most frequent state for each branch in the metadata
 	tbp.metadata.InitializeMostFreqState()
 
 	// Reset the prediction table
@@ -155,9 +159,12 @@ func (tbp *TwoBitProfiled) Predict(instructions []instruction.Instruction) utils
 			// Add the PC address to the prediction table if it does not exist
 			if _, ok := tbp.predictionTable[pcAddress]; !ok {
 				branch, ok := tbp.metadata.BranchAddress[pcAddress]
+				// If the branch address does not exist in the metadata, use the initial state
 				if !ok {
 					tbp.predictionTable[pcAddress] = tbp.initialState
 				} else {
+					// Otherwise, use the most frequent state for the branch address
+					// found from the profiling phase
 					mostFreqState := branch.MostFreqState
 					tbp.predictionTable[pcAddress] = mostFreqState
 				}
