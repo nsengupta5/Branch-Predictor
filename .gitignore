@@ -337,3 +337,5 @@ TSWLatexianTemp*
 
 outputs/metadata/
 test_traces/
+plots/
+plot.py

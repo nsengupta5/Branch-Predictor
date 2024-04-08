@@ -120,5 +120,30 @@ An example configuration file for the `gshare` algorithm is as follows:
 ```
 
 ### Profiled
+The `profiled` algorithm requires the following configuration settings:
+- `table_size`: The size of the branch prediction table. This can be one of 512, 1024, 2048, or 4096.
+- `initial_state`: The initial state of the branch prediction table. This can be one of `StronglyTaken`, `WeaklyTaken`, `WeaklyNotTaken`, or `StronglyNotTaken`.
+- `strata_size`: The number of strata to use for the profiled branch prediction algorithm.
+- `strata_proportion`: The proportion of the branch prediction table to use for each strata. This should be a list of floats that sum to 1.0.
 
-TODO
+An example configuration file for the `profiled` algorithm is as follows:
+```json
+{
+    "algorithm": "profiled",
+    "max_lines": [1000, 5000],
+    "configs": [
+        {
+            "table_size": 1024,
+            "initial_state": "StronglyTaken",
+            "strata_size": 10,
+            "strata_proportion": 0.2
+        },
+        {
+            "table_size": 2048,
+            "initial_state": "WeaklyTaken",
+            "strata_size": 8,
+            "strata_proportion": 0.3
+        }
+    ]
+}
+```
