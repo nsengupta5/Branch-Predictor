@@ -1,9 +1,5 @@
 package utils
 
-import (
-	"slices"
-)
-
 // MetaData represents the metadata produced by the simulator
 type MetaData struct {
 	BranchAddress map[uint64]BranchInfo `json:"branch_address"`
@@ -48,11 +44,7 @@ func (md *MetaData) Update(taken bool, direct bool, address uint64, mispredictio
 	branchInfo.DirectRecord = append(branchInfo.DirectRecord, direct)
 	branchInfo.MispredictionRecord = append(branchInfo.MispredictionRecord, misprediction)
 
-	validStates := []State{0, 1, 2, 3}
-
-	if slices.Contains(validStates, state) {
-		branchInfo.StateRecord = append(branchInfo.StateRecord, state)
-	}
+	branchInfo.StateRecord = append(branchInfo.StateRecord, state)
 
 	md.BranchAddress[address] = branchInfo
 }
