@@ -113,32 +113,11 @@ func ExportResults(runs []map[string]interface{}, bpConfig *BPConfig, traceFile 
 		panic(err)
 	}
 
-	outputFile := fmt.Sprintf("outputs/results/%s/%s.json", bpConfig.Algorithm, traceFile)
+	outputFile := fmt.Sprintf("results/%s/%s.json", bpConfig.Algorithm, traceFile)
 	err = os.WriteFile(outputFile, jsonOutput, 0644)
 	if err != nil {
 		panic(err)
 	}
 
 	fmt.Printf("Results written to %s\n", outputFile)
-}
-
-// ExportMetadata exports the metadata of the branch predictor simulation to a JSON file
-func ExportMetadata(metadataRuns []map[string]interface{}, bpConfig *BPConfig, traceFile string) {
-	// Export the metadata to a JSON file
-	jsonOutput, err := json.MarshalIndent(metadataRuns, "", "    ")
-	if err != nil {
-		panic(err)
-	}
-
-	// Split the trace file name to get the trace file name without the extension
-	traceFile = strings.Split(traceFile, "/")[1]
-	traceFile = strings.Split(traceFile, ".")[0]
-
-	outputFile := fmt.Sprintf("outputs/metadata/%s/%s.json", bpConfig.Algorithm, traceFile)
-	err = os.WriteFile(outputFile, jsonOutput, 0644)
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Printf("Metadata written to %s\n", outputFile)
 }

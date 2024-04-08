@@ -303,11 +303,11 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1523,
+            "mispredictions": 1524,
             "count": 5800,
-            "correct": 4277,
-            "accuracy": "73.74%",
-            "misprediction_rate": "26.26%"
+            "correct": 4276,
+            "accuracy": "73.72%",
+            "misprediction_rate": "26.28%"
           }
         },
         {
@@ -1238,9 +1238,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1783228,
+            "mispredictions": 1783230,
             "count": 8918021,
-            "correct": 7134793,
+            "correct": 7134791,
             "accuracy": "80.00%",
             "misprediction_rate": "20.00%"
           }
@@ -1253,9 +1253,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1783192,
+            "mispredictions": 1783194,
             "count": 8918021,
-            "correct": 7134829,
+            "correct": 7134827,
             "accuracy": "80.00%",
             "misprediction_rate": "20.00%"
           }
@@ -1268,9 +1268,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1783213,
+            "mispredictions": 1783209,
             "count": 8918021,
-            "correct": 7134808,
+            "correct": 7134812,
             "accuracy": "80.00%",
             "misprediction_rate": "20.00%"
           }
@@ -1283,9 +1283,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1783292,
+            "mispredictions": 1783286,
             "count": 8918021,
-            "correct": 7134729,
+            "correct": 7134735,
             "accuracy": "80.00%",
             "misprediction_rate": "20.00%"
           }
@@ -1298,9 +1298,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1780769,
+            "mispredictions": 1780766,
             "count": 8918021,
-            "correct": 7137252,
+            "correct": 7137255,
             "accuracy": "80.03%",
             "misprediction_rate": "19.97%"
           }
@@ -1313,9 +1313,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1780692,
+            "mispredictions": 1780689,
             "count": 8918021,
-            "correct": 7137329,
+            "correct": 7137332,
             "accuracy": "80.03%",
             "misprediction_rate": "19.97%"
           }
@@ -1328,9 +1328,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1780757,
+            "mispredictions": 1780760,
             "count": 8918021,
-            "correct": 7137264,
+            "correct": 7137261,
             "accuracy": "80.03%",
             "misprediction_rate": "19.97%"
           }
@@ -1343,9 +1343,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1780942,
+            "mispredictions": 1780944,
             "count": 8918021,
-            "correct": 7137079,
+            "correct": 7137077,
             "accuracy": "80.03%",
             "misprediction_rate": "19.97%"
           }
@@ -1358,9 +1358,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1780663,
+            "mispredictions": 1780661,
             "count": 8918021,
-            "correct": 7137358,
+            "correct": 7137360,
             "accuracy": "80.03%",
             "misprediction_rate": "19.97%"
           }
@@ -1373,9 +1373,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1780530,
+            "mispredictions": 1780527,
             "count": 8918021,
-            "correct": 7137491,
+            "correct": 7137494,
             "accuracy": "80.03%",
             "misprediction_rate": "19.97%"
           }
@@ -1388,9 +1388,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1780654,
+            "mispredictions": 1780661,
             "count": 8918021,
-            "correct": 7137367,
+            "correct": 7137360,
             "accuracy": "80.03%",
             "misprediction_rate": "19.97%"
           }
@@ -1418,9 +1418,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1779677,
+            "mispredictions": 1779676,
             "count": 8918021,
-            "correct": 7138344,
+            "correct": 7138345,
             "accuracy": "80.04%",
             "misprediction_rate": "19.96%"
           }
@@ -1433,9 +1433,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1779500,
+            "mispredictions": 1779499,
             "count": 8918021,
-            "correct": 7138521,
+            "correct": 7138522,
             "accuracy": "80.05%",
             "misprediction_rate": "19.95%"
           }
@@ -1448,9 +1448,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1779725,
+            "mispredictions": 1779724,
             "count": 8918021,
-            "correct": 7138296,
+            "correct": 7138297,
             "accuracy": "80.04%",
             "misprediction_rate": "19.96%"
           }
@@ -1463,9 +1463,9 @@
             "strata_proportion": 0.2
           },
           "result": {
-            "mispredictions": 1780125,
+            "mispredictions": 1780127,
             "count": 8918021,
-            "correct": 7137896,
+            "correct": 7137894,
             "accuracy": "80.04%",
             "misprediction_rate": "19.96%"
           }
