@@ -99,7 +99,9 @@ func GetBPConfig(configFile string) BPConfig {
 func ExportResults(runs []map[string]interface{}, bpConfig *BPConfig, traceFile string) {
 
 	// Split the trace file name to get the trace file name without the extension
-	traceFile = strings.Split(traceFile, "/")[1]
+	if strings.Contains(traceFile, "/") {
+		traceFile = strings.Split(traceFile, "/")[1]
+	}
 	traceFile = strings.Split(traceFile, ".")[0]
 
 	output := Output{
