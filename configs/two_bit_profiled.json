@@ -1,6 +1,6 @@
 {
     "algorithm": "two-bit-profiled",
-    "max_lines": [1000, 10000, 100000, 1000000, 10000000, -1],
+    "max_lines": [1000, 10000, 100000, 1000000, -1],
     "configs": [
         {
             "table_size": 512,

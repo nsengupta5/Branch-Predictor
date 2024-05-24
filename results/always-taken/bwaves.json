@@ -8,11 +8,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 345,
-            "count": 586,
-            "correct": 241,
-            "accuracy": "41.13%",
-            "misprediction_rate": "58.87%"
+            "mispredictions": 502,
+            "count": 573,
+            "correct": 71,
+            "accuracy": "12.39%",
+            "misprediction_rate": "87.61%"
           }
         }
       ]
@@ -23,11 +23,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 3457,
-            "count": 5862,
-            "correct": 2405,
-            "accuracy": "41.03%",
-            "misprediction_rate": "58.97%"
+            "mispredictions": 5010,
+            "count": 5723,
+            "correct": 713,
+            "accuracy": "12.46%",
+            "misprediction_rate": "87.54%"
           }
         }
       ]
@@ -38,11 +38,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 34552,
-            "count": 58611,
-            "correct": 24059,
-            "accuracy": "41.05%",
-            "misprediction_rate": "58.95%"
+            "mispredictions": 50113,
+            "count": 57240,
+            "correct": 7127,
+            "accuracy": "12.45%",
+            "misprediction_rate": "87.55%"
           }
         }
       ]
@@ -53,26 +53,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 345534,
-            "count": 586122,
-            "correct": 240588,
-            "accuracy": "41.05%",
-            "misprediction_rate": "58.95%"
-          }
-        }
-      ]
-    },
-    {
-      "max_lines": 10000000,
-      "stats": [
-        {
-          "config": {},
-          "result": {
-            "mispredictions": 3747998,
-            "count": 5835436,
-            "correct": 2087438,
-            "accuracy": "35.77%",
-            "misprediction_rate": "64.23%"
+            "mispredictions": 501147,
+            "count": 572412,
+            "correct": 71265,
+            "accuracy": "12.45%",
+            "misprediction_rate": "87.55%"
           }
         }
       ]
@@ -83,11 +68,11 @@
         {
           "config": {},
           "result": {
-            "mispredictions": 5523595,
-            "count": 9149338,
-            "correct": 3625743,
-            "accuracy": "39.63%",
-            "misprediction_rate": "60.37%"
+            "mispredictions": 2031742,
+            "count": 3226218,
+            "correct": 1194476,
+            "accuracy": "37.02%",
+            "misprediction_rate": "62.98%"
           }
         }
       ]
