@@ -334,8 +334,3 @@ TSWLatexianTemp*
 *.glstex
 
 # End of https://www.toptal.com/developers/gitignore/api/tex
-
-outputs/metadata/
-test_traces/
-plots/
-plot.py
